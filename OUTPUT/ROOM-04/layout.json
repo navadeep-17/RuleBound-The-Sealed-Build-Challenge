@@ -1,0 +1,1611 @@
+{
+  "placements": [
+    {
+      "finish_id": "F17",
+      "placement_id": "P001",
+      "rotation_deg": 0,
+      "sku": "NW-DES-009",
+      "x_mm": 1400,
+      "y_mm": 1300
+    },
+    {
+      "finish_id": "F18",
+      "placement_id": "P002",
+      "rotation_deg": 0,
+      "sku": "NW-CHA-012",
+      "x_mm": 1200,
+      "y_mm": 600
+    },
+    {
+      "finish_id": "F17",
+      "placement_id": "P003",
+      "rotation_deg": 0,
+      "sku": "NW-DES-009",
+      "x_mm": 2600,
+      "y_mm": 1200
+    },
+    {
+      "finish_id": "F18",
+      "placement_id": "P004",
+      "rotation_deg": 0,
+      "sku": "NW-CHA-012",
+      "x_mm": 2600,
+      "y_mm": 500
+    },
+    {
+      "finish_id": "F17",
+      "placement_id": "P005",
+      "rotation_deg": 0,
+      "sku": "NW-DES-009",
+      "x_mm": 4000,
+      "y_mm": 1200
+    },
+    {
+      "finish_id": "F18",
+      "placement_id": "P006",
+      "rotation_deg": 0,
+      "sku": "NW-CHA-012",
+      "x_mm": 4000,
+      "y_mm": 400
+    },
+    {
+      "finish_id": "F17",
+      "placement_id": "P007",
+      "rotation_deg": 0,
+      "sku": "NW-DES-009",
+      "x_mm": 5400,
+      "y_mm": 1200
+    },
+    {
+      "finish_id": "F18",
+      "placement_id": "P008",
+      "rotation_deg": 0,
+      "sku": "NW-CHA-012",
+      "x_mm": 5400,
+      "y_mm": 500
+    },
+    {
+      "finish_id": "F17",
+      "placement_id": "P009",
+      "rotation_deg": 0,
+      "sku": "NW-DES-009",
+      "x_mm": 6800,
+      "y_mm": 1200
+    },
+    {
+      "finish_id": "F18",
+      "placement_id": "P010",
+      "rotation_deg": 0,
+      "sku": "NW-CHA-012",
+      "x_mm": 6800,
+      "y_mm": 500
+    },
+    {
+      "finish_id": "F17",
+      "placement_id": "P011",
+      "rotation_deg": 0,
+      "sku": "NW-DES-009",
+      "x_mm": 8200,
+      "y_mm": 1200
+    },
+    {
+      "finish_id": "F18",
+      "placement_id": "P012",
+      "rotation_deg": 0,
+      "sku": "NW-CHA-012",
+      "x_mm": 8200,
+      "y_mm": 500
+    },
+    {
+      "finish_id": "F17",
+      "placement_id": "P013",
+      "rotation_deg": 0,
+      "sku": "NW-DES-009",
+      "x_mm": 9400,
+      "y_mm": 1200
+    },
+    {
+      "finish_id": "F18",
+      "placement_id": "P014",
+      "rotation_deg": 0,
+      "sku": "NW-CHA-012",
+      "x_mm": 9400,
+      "y_mm": 500
+    },
+    {
+      "finish_id": "F17",
+      "placement_id": "P015",
+      "rotation_deg": 0,
+      "sku": "NW-DES-009",
+      "x_mm": 1200,
+      "y_mm": 2800
+    },
+    {
+      "finish_id": "F18",
+      "placement_id": "P016",
+      "rotation_deg": 0,
+      "sku": "NW-CHA-012",
+      "x_mm": 1200,
+      "y_mm": 2200
+    },
+    {
+      "finish_id": "F17",
+      "placement_id": "P017",
+      "rotation_deg": 0,
+      "sku": "NW-DES-009",
+      "x_mm": 2600,
+      "y_mm": 2800
+    },
+    {
+      "finish_id": "F18",
+      "placement_id": "P018",
+      "rotation_deg": 0,
+      "sku": "NW-CHA-012",
+      "x_mm": 2600,
+      "y_mm": 2200
+    },
+    {
+      "finish_id": "F17",
+      "placement_id": "P019",
+      "rotation_deg": 0,
+      "sku": "NW-DES-009",
+      "x_mm": 4000,
+      "y_mm": 2800
+    },
+    {
+      "finish_id": "F18",
+      "placement_id": "P020",
+      "rotation_deg": 0,
+      "sku": "NW-CHA-012",
+      "x_mm": 4000,
+      "y_mm": 2200
+    },
+    {
+      "finish_id": "F17",
+      "placement_id": "P021",
+      "rotation_deg": 0,
+      "sku": "NW-DES-009",
+      "x_mm": 5400,
+      "y_mm": 2800
+    },
+    {
+      "finish_id": "F18",
+      "placement_id": "P022",
+      "rotation_deg": 0,
+      "sku": "NW-CHA-012",
+      "x_mm": 5400,
+      "y_mm": 2200
+    },
+    {
+      "finish_id": "F17",
+      "placement_id": "P023",
+      "rotation_deg": 0,
+      "sku": "NW-DES-009",
+      "x_mm": 6800,
+      "y_mm": 2800
+    },
+    {
+      "finish_id": "F18",
+      "placement_id": "P024",
+      "rotation_deg": 0,
+      "sku": "NW-CHA-012",
+      "x_mm": 6800,
+      "y_mm": 2200
+    },
+    {
+      "finish_id": "F17",
+      "placement_id": "P025",
+      "rotation_deg": 0,
+      "sku": "NW-DES-009",
+      "x_mm": 8200,
+      "y_mm": 2800
+    },
+    {
+      "finish_id": "F18",
+      "placement_id": "P026",
+      "rotation_deg": 0,
+      "sku": "NW-CHA-012",
+      "x_mm": 8200,
+      "y_mm": 2200
+    },
+    {
+      "finish_id": "F17",
+      "placement_id": "P027",
+      "rotation_deg": 0,
+      "sku": "NW-DES-009",
+      "x_mm": 9400,
+      "y_mm": 2800
+    },
+    {
+      "finish_id": "F18",
+      "placement_id": "P028",
+      "rotation_deg": 0,
+      "sku": "NW-CHA-012",
+      "x_mm": 9400,
+      "y_mm": 2200
+    },
+    {
+      "finish_id": "F04",
+      "placement_id": "P029",
+      "rotation_deg": 90,
+      "sku": "NW-STO-011",
+      "x_mm": 400,
+      "y_mm": 2000
+    },
+    {
+      "finish_id": "F04",
+      "placement_id": "P030",
+      "rotation_deg": 90,
+      "sku": "NW-STO-011",
+      "x_mm": 400,
+      "y_mm": 3200
+    },
+    {
+      "finish_id": "F04",
+      "placement_id": "P032",
+      "rotation_deg": 90,
+      "sku": "NW-STO-011",
+      "x_mm": 9800,
+      "y_mm": 2400
+    }
+  ],
+  "room_id": "ROOM-04",
+  "status": "unsatisfiable",
+  "violations": [
+    {
+      "affected_placement_ids": [
+        "P015",
+        "P016"
+      ],
+      "measured": {
+        "overlap": true
+      },
+      "message": "Footprints of P015 and P016 overlap.",
+      "repair_options": [
+        {
+          "action": "separate",
+          "placement_ids": [
+            "P015",
+            "P016"
+          ]
+        },
+        {
+          "action": "remove",
+          "placement_id": "P016"
+        }
+      ],
+      "required": {
+        "overlap": false
+      },
+      "rule_id": "RB-GEO-006",
+      "violation_id": "V001"
+    },
+    {
+      "affected_placement_ids": [
+        "P015",
+        "P029"
+      ],
+      "measured": {
+        "overlap": true
+      },
+      "message": "Footprints of P015 and P029 overlap.",
+      "repair_options": [
+        {
+          "action": "separate",
+          "placement_ids": [
+            "P015",
+            "P029"
+          ]
+        },
+        {
+          "action": "remove",
+          "placement_id": "P029"
+        }
+      ],
+      "required": {
+        "overlap": false
+      },
+      "rule_id": "RB-GEO-006",
+      "violation_id": "V002"
+    },
+    {
+      "affected_placement_ids": [
+        "P015",
+        "P030"
+      ],
+      "measured": {
+        "overlap": true
+      },
+      "message": "Footprints of P015 and P030 overlap.",
+      "repair_options": [
+        {
+          "action": "separate",
+          "placement_ids": [
+            "P015",
+            "P030"
+          ]
+        },
+        {
+          "action": "remove",
+          "placement_id": "P030"
+        }
+      ],
+      "required": {
+        "overlap": false
+      },
+      "rule_id": "RB-GEO-006",
+      "violation_id": "V003"
+    },
+    {
+      "affected_placement_ids": [
+        "P017",
+        "P018"
+      ],
+      "measured": {
+        "overlap": true
+      },
+      "message": "Footprints of P017 and P018 overlap.",
+      "repair_options": [
+        {
+          "action": "separate",
+          "placement_ids": [
+            "P017",
+            "P018"
+          ]
+        },
+        {
+          "action": "remove",
+          "placement_id": "P018"
+        }
+      ],
+      "required": {
+        "overlap": false
+      },
+      "rule_id": "RB-GEO-006",
+      "violation_id": "V004"
+    },
+    {
+      "affected_placement_ids": [
+        "P019",
+        "P020"
+      ],
+      "measured": {
+        "overlap": true
+      },
+      "message": "Footprints of P019 and P020 overlap.",
+      "repair_options": [
+        {
+          "action": "separate",
+          "placement_ids": [
+            "P019",
+            "P020"
+          ]
+        },
+        {
+          "action": "remove",
+          "placement_id": "P020"
+        }
+      ],
+      "required": {
+        "overlap": false
+      },
+      "rule_id": "RB-GEO-006",
+      "violation_id": "V005"
+    },
+    {
+      "affected_placement_ids": [
+        "P021",
+        "P022"
+      ],
+      "measured": {
+        "overlap": true
+      },
+      "message": "Footprints of P021 and P022 overlap.",
+      "repair_options": [
+        {
+          "action": "separate",
+          "placement_ids": [
+            "P021",
+            "P022"
+          ]
+        },
+        {
+          "action": "remove",
+          "placement_id": "P022"
+        }
+      ],
+      "required": {
+        "overlap": false
+      },
+      "rule_id": "RB-GEO-006",
+      "violation_id": "V006"
+    },
+    {
+      "affected_placement_ids": [
+        "P023",
+        "P024"
+      ],
+      "measured": {
+        "overlap": true
+      },
+      "message": "Footprints of P023 and P024 overlap.",
+      "repair_options": [
+        {
+          "action": "separate",
+          "placement_ids": [
+            "P023",
+            "P024"
+          ]
+        },
+        {
+          "action": "remove",
+          "placement_id": "P024"
+        }
+      ],
+      "required": {
+        "overlap": false
+      },
+      "rule_id": "RB-GEO-006",
+      "violation_id": "V007"
+    },
+    {
+      "affected_placement_ids": [
+        "P025",
+        "P026"
+      ],
+      "measured": {
+        "overlap": true
+      },
+      "message": "Footprints of P025 and P026 overlap.",
+      "repair_options": [
+        {
+          "action": "separate",
+          "placement_ids": [
+            "P025",
+            "P026"
+          ]
+        },
+        {
+          "action": "remove",
+          "placement_id": "P026"
+        }
+      ],
+      "required": {
+        "overlap": false
+      },
+      "rule_id": "RB-GEO-006",
+      "violation_id": "V008"
+    },
+    {
+      "affected_placement_ids": [
+        "P027",
+        "P028"
+      ],
+      "measured": {
+        "overlap": true
+      },
+      "message": "Footprints of P027 and P028 overlap.",
+      "repair_options": [
+        {
+          "action": "separate",
+          "placement_ids": [
+            "P027",
+            "P028"
+          ]
+        },
+        {
+          "action": "remove",
+          "placement_id": "P028"
+        }
+      ],
+      "required": {
+        "overlap": false
+      },
+      "rule_id": "RB-GEO-006",
+      "violation_id": "V009"
+    },
+    {
+      "affected_placement_ids": [
+        "P027",
+        "P032"
+      ],
+      "measured": {
+        "overlap": true
+      },
+      "message": "Footprints of P027 and P032 overlap.",
+      "repair_options": [
+        {
+          "action": "separate",
+          "placement_ids": [
+            "P027",
+            "P032"
+          ]
+        },
+        {
+          "action": "remove",
+          "placement_id": "P032"
+        }
+      ],
+      "required": {
+        "overlap": false
+      },
+      "rule_id": "RB-GEO-006",
+      "violation_id": "V010"
+    },
+    {
+      "affected_placement_ids": [
+        "P028",
+        "P032"
+      ],
+      "measured": {
+        "overlap": true
+      },
+      "message": "Footprints of P028 and P032 overlap.",
+      "repair_options": [
+        {
+          "action": "separate",
+          "placement_ids": [
+            "P028",
+            "P032"
+          ]
+        },
+        {
+          "action": "remove",
+          "placement_id": "P032"
+        }
+      ],
+      "required": {
+        "overlap": false
+      },
+      "rule_id": "RB-GEO-006",
+      "violation_id": "V011"
+    },
+    {
+      "affected_placement_ids": [
+        "P002"
+      ],
+      "measured": {
+        "clearance_from_centerline_mm": 192.9
+      },
+      "message": "Placement P002 encroaches into egress path by 357.1 mm.",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P002",
+          "strategy": "clear_egress"
+        },
+        {
+          "action": "remove",
+          "placement_id": "P002"
+        }
+      ],
+      "required": {
+        "min_half_width_mm": 550.0
+      },
+      "rule_id": "RB-GEO-002",
+      "violation_id": "V012"
+    },
+    {
+      "affected_placement_ids": [
+        "P003"
+      ],
+      "measured": {
+        "clearance_from_centerline_mm": 34.4
+      },
+      "message": "Placement P003 encroaches into egress path by 515.6 mm.",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P003",
+          "strategy": "clear_egress"
+        },
+        {
+          "action": "remove",
+          "placement_id": "P003"
+        }
+      ],
+      "required": {
+        "min_half_width_mm": 550.0
+      },
+      "rule_id": "RB-GEO-002",
+      "violation_id": "V013"
+    },
+    {
+      "affected_placement_ids": [
+        "P004"
+      ],
+      "measured": {
+        "clearance_from_centerline_mm": 0.0
+      },
+      "message": "Placement P004 encroaches into egress path by 550.0 mm.",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P004",
+          "strategy": "clear_egress"
+        },
+        {
+          "action": "remove",
+          "placement_id": "P004"
+        }
+      ],
+      "required": {
+        "min_half_width_mm": 550.0
+      },
+      "rule_id": "RB-GEO-002",
+      "violation_id": "V014"
+    },
+    {
+      "affected_placement_ids": [
+        "P005"
+      ],
+      "measured": {
+        "clearance_from_centerline_mm": 0.0
+      },
+      "message": "Placement P005 encroaches into egress path by 550.0 mm.",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P005",
+          "strategy": "clear_egress"
+        },
+        {
+          "action": "remove",
+          "placement_id": "P005"
+        }
+      ],
+      "required": {
+        "min_half_width_mm": 550.0
+      },
+      "rule_id": "RB-GEO-002",
+      "violation_id": "V015"
+    },
+    {
+      "affected_placement_ids": [
+        "P006"
+      ],
+      "measured": {
+        "clearance_from_centerline_mm": 265.0
+      },
+      "message": "Placement P006 encroaches into egress path by 285.0 mm.",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P006",
+          "strategy": "clear_egress"
+        },
+        {
+          "action": "remove",
+          "placement_id": "P006"
+        }
+      ],
+      "required": {
+        "min_half_width_mm": 550.0
+      },
+      "rule_id": "RB-GEO-002",
+      "violation_id": "V016"
+    },
+    {
+      "affected_placement_ids": [
+        "P007"
+      ],
+      "measured": {
+        "clearance_from_centerline_mm": 0.0
+      },
+      "message": "Placement P007 encroaches into egress path by 550.0 mm.",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P007",
+          "strategy": "clear_egress"
+        },
+        {
+          "action": "remove",
+          "placement_id": "P007"
+        }
+      ],
+      "required": {
+        "min_half_width_mm": 550.0
+      },
+      "rule_id": "RB-GEO-002",
+      "violation_id": "V017"
+    },
+    {
+      "affected_placement_ids": [
+        "P009"
+      ],
+      "measured": {
+        "clearance_from_centerline_mm": 421.9
+      },
+      "message": "Placement P009 encroaches into egress path by 128.1 mm.",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P009",
+          "strategy": "clear_egress"
+        },
+        {
+          "action": "remove",
+          "placement_id": "P009"
+        }
+      ],
+      "required": {
+        "min_half_width_mm": 550.0
+      },
+      "rule_id": "RB-GEO-002",
+      "violation_id": "V018"
+    },
+    {
+      "affected_placement_ids": [
+        "P021"
+      ],
+      "measured": {
+        "clearance_from_centerline_mm": 439.9
+      },
+      "message": "Placement P021 encroaches into egress path by 110.1 mm.",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P021",
+          "strategy": "clear_egress"
+        },
+        {
+          "action": "remove",
+          "placement_id": "P021"
+        }
+      ],
+      "required": {
+        "min_half_width_mm": 550.0
+      },
+      "rule_id": "RB-GEO-002",
+      "violation_id": "V019"
+    },
+    {
+      "affected_placement_ids": [
+        "P022"
+      ],
+      "measured": {
+        "clearance_from_centerline_mm": 62.2
+      },
+      "message": "Placement P022 encroaches into egress path by 487.8 mm.",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P022",
+          "strategy": "clear_egress"
+        },
+        {
+          "action": "remove",
+          "placement_id": "P022"
+        }
+      ],
+      "required": {
+        "min_half_width_mm": 550.0
+      },
+      "rule_id": "RB-GEO-002",
+      "violation_id": "V020"
+    },
+    {
+      "affected_placement_ids": [
+        "P023"
+      ],
+      "measured": {
+        "clearance_from_centerline_mm": 0.0
+      },
+      "message": "Placement P023 encroaches into egress path by 550.0 mm.",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P023",
+          "strategy": "clear_egress"
+        },
+        {
+          "action": "remove",
+          "placement_id": "P023"
+        }
+      ],
+      "required": {
+        "min_half_width_mm": 550.0
+      },
+      "rule_id": "RB-GEO-002",
+      "violation_id": "V021"
+    },
+    {
+      "affected_placement_ids": [
+        "P024"
+      ],
+      "measured": {
+        "clearance_from_centerline_mm": 0.0
+      },
+      "message": "Placement P024 encroaches into egress path by 550.0 mm.",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P024",
+          "strategy": "clear_egress"
+        },
+        {
+          "action": "remove",
+          "placement_id": "P024"
+        }
+      ],
+      "required": {
+        "min_half_width_mm": 550.0
+      },
+      "rule_id": "RB-GEO-002",
+      "violation_id": "V022"
+    },
+    {
+      "affected_placement_ids": [
+        "P025"
+      ],
+      "measured": {
+        "clearance_from_centerline_mm": 0.0
+      },
+      "message": "Placement P025 encroaches into egress path by 550.0 mm.",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P025",
+          "strategy": "clear_egress"
+        },
+        {
+          "action": "remove",
+          "placement_id": "P025"
+        }
+      ],
+      "required": {
+        "min_half_width_mm": 550.0
+      },
+      "rule_id": "RB-GEO-002",
+      "violation_id": "V023"
+    },
+    {
+      "affected_placement_ids": [
+        "P026"
+      ],
+      "measured": {
+        "clearance_from_centerline_mm": 210.9
+      },
+      "message": "Placement P026 encroaches into egress path by 339.1 mm.",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P026",
+          "strategy": "clear_egress"
+        },
+        {
+          "action": "remove",
+          "placement_id": "P026"
+        }
+      ],
+      "required": {
+        "min_half_width_mm": 550.0
+      },
+      "rule_id": "RB-GEO-002",
+      "violation_id": "V024"
+    },
+    {
+      "affected_placement_ids": [
+        "P027"
+      ],
+      "measured": {
+        "clearance_from_centerline_mm": 0.0
+      },
+      "message": "Placement P027 encroaches into egress path by 550.0 mm.",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P027",
+          "strategy": "clear_egress"
+        },
+        {
+          "action": "remove",
+          "placement_id": "P027"
+        }
+      ],
+      "required": {
+        "min_half_width_mm": 550.0
+      },
+      "rule_id": "RB-GEO-002",
+      "violation_id": "V025"
+    },
+    {
+      "affected_placement_ids": [
+        "P032"
+      ],
+      "measured": {
+        "clearance_from_centerline_mm": 388.6
+      },
+      "message": "Placement P032 encroaches into egress path by 161.4 mm.",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P032",
+          "strategy": "clear_egress"
+        },
+        {
+          "action": "remove",
+          "placement_id": "P032"
+        }
+      ],
+      "required": {
+        "min_half_width_mm": 550.0
+      },
+      "rule_id": "RB-GEO-002",
+      "violation_id": "V026"
+    },
+    {
+      "affected_placement_ids": [
+        "P001",
+        "P015"
+      ],
+      "measured": {
+        "walkway_width_mm": 750.0
+      },
+      "message": "Walkway width between P001 and P015 is 750.0 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P001",
+            "P015"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V027"
+    },
+    {
+      "affected_placement_ids": [
+        "P001",
+        "P017"
+      ],
+      "measured": {
+        "walkway_width_mm": 750.0
+      },
+      "message": "Walkway width between P001 and P017 is 750.0 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P001",
+            "P017"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V028"
+    },
+    {
+      "affected_placement_ids": [
+        "P003",
+        "P005"
+      ],
+      "measured": {
+        "walkway_width_mm": 200.0
+      },
+      "message": "Walkway width between P003 and P005 is 200.0 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P003",
+            "P005"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V029"
+    },
+    {
+      "affected_placement_ids": [
+        "P003",
+        "P015"
+      ],
+      "measured": {
+        "walkway_width_mm": 873.2
+      },
+      "message": "Walkway width between P003 and P015 is 873.2 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P003",
+            "P015"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V030"
+    },
+    {
+      "affected_placement_ids": [
+        "P003",
+        "P017"
+      ],
+      "measured": {
+        "walkway_width_mm": 850.0
+      },
+      "message": "Walkway width between P003 and P017 is 850.0 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P003",
+            "P017"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V031"
+    },
+    {
+      "affected_placement_ids": [
+        "P003",
+        "P019"
+      ],
+      "measured": {
+        "walkway_width_mm": 873.2
+      },
+      "message": "Walkway width between P003 and P019 is 873.2 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P003",
+            "P019"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V032"
+    },
+    {
+      "affected_placement_ids": [
+        "P005",
+        "P007"
+      ],
+      "measured": {
+        "walkway_width_mm": 200.0
+      },
+      "message": "Walkway width between P005 and P007 is 200.0 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P005",
+            "P007"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V033"
+    },
+    {
+      "affected_placement_ids": [
+        "P005",
+        "P017"
+      ],
+      "measured": {
+        "walkway_width_mm": 873.2
+      },
+      "message": "Walkway width between P005 and P017 is 873.2 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P005",
+            "P017"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V034"
+    },
+    {
+      "affected_placement_ids": [
+        "P005",
+        "P019"
+      ],
+      "measured": {
+        "walkway_width_mm": 850.0
+      },
+      "message": "Walkway width between P005 and P019 is 850.0 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P005",
+            "P019"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V035"
+    },
+    {
+      "affected_placement_ids": [
+        "P005",
+        "P021"
+      ],
+      "measured": {
+        "walkway_width_mm": 873.2
+      },
+      "message": "Walkway width between P005 and P021 is 873.2 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P005",
+            "P021"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V036"
+    },
+    {
+      "affected_placement_ids": [
+        "P007",
+        "P009"
+      ],
+      "measured": {
+        "walkway_width_mm": 200.0
+      },
+      "message": "Walkway width between P007 and P009 is 200.0 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P007",
+            "P009"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V037"
+    },
+    {
+      "affected_placement_ids": [
+        "P007",
+        "P019"
+      ],
+      "measured": {
+        "walkway_width_mm": 873.2
+      },
+      "message": "Walkway width between P007 and P019 is 873.2 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P007",
+            "P019"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V038"
+    },
+    {
+      "affected_placement_ids": [
+        "P007",
+        "P021"
+      ],
+      "measured": {
+        "walkway_width_mm": 850.0
+      },
+      "message": "Walkway width between P007 and P021 is 850.0 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P007",
+            "P021"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V039"
+    },
+    {
+      "affected_placement_ids": [
+        "P007",
+        "P023"
+      ],
+      "measured": {
+        "walkway_width_mm": 873.2
+      },
+      "message": "Walkway width between P007 and P023 is 873.2 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P007",
+            "P023"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V040"
+    },
+    {
+      "affected_placement_ids": [
+        "P009",
+        "P011"
+      ],
+      "measured": {
+        "walkway_width_mm": 200.0
+      },
+      "message": "Walkway width between P009 and P011 is 200.0 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P009",
+            "P011"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V041"
+    },
+    {
+      "affected_placement_ids": [
+        "P009",
+        "P021"
+      ],
+      "measured": {
+        "walkway_width_mm": 873.2
+      },
+      "message": "Walkway width between P009 and P021 is 873.2 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P009",
+            "P021"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V042"
+    },
+    {
+      "affected_placement_ids": [
+        "P009",
+        "P023"
+      ],
+      "measured": {
+        "walkway_width_mm": 850.0
+      },
+      "message": "Walkway width between P009 and P023 is 850.0 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P009",
+            "P023"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V043"
+    },
+    {
+      "affected_placement_ids": [
+        "P009",
+        "P025"
+      ],
+      "measured": {
+        "walkway_width_mm": 873.2
+      },
+      "message": "Walkway width between P009 and P025 is 873.2 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P009",
+            "P025"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V044"
+    },
+    {
+      "affected_placement_ids": [
+        "P011",
+        "P023"
+      ],
+      "measured": {
+        "walkway_width_mm": 873.2
+      },
+      "message": "Walkway width between P011 and P023 is 873.2 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P011",
+            "P023"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V045"
+    },
+    {
+      "affected_placement_ids": [
+        "P011",
+        "P025"
+      ],
+      "measured": {
+        "walkway_width_mm": 850.0
+      },
+      "message": "Walkway width between P011 and P025 is 850.0 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P011",
+            "P025"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V046"
+    },
+    {
+      "affected_placement_ids": [
+        "P011",
+        "P027"
+      ],
+      "measured": {
+        "walkway_width_mm": 850.0
+      },
+      "message": "Walkway width between P011 and P027 is 850.0 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P011",
+            "P027"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V047"
+    },
+    {
+      "affected_placement_ids": [
+        "P013",
+        "P025"
+      ],
+      "measured": {
+        "walkway_width_mm": 850.0
+      },
+      "message": "Walkway width between P013 and P025 is 850.0 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P013",
+            "P025"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V048"
+    },
+    {
+      "affected_placement_ids": [
+        "P013",
+        "P027"
+      ],
+      "measured": {
+        "walkway_width_mm": 850.0
+      },
+      "message": "Walkway width between P013 and P027 is 850.0 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P013",
+            "P027"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V049"
+    },
+    {
+      "affected_placement_ids": [
+        "P015",
+        "P017"
+      ],
+      "measured": {
+        "walkway_width_mm": 200.0
+      },
+      "message": "Walkway width between P015 and P017 is 200.0 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P015",
+            "P017"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V050"
+    },
+    {
+      "affected_placement_ids": [
+        "P017",
+        "P019"
+      ],
+      "measured": {
+        "walkway_width_mm": 200.0
+      },
+      "message": "Walkway width between P017 and P019 is 200.0 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P017",
+            "P019"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V051"
+    },
+    {
+      "affected_placement_ids": [
+        "P019",
+        "P021"
+      ],
+      "measured": {
+        "walkway_width_mm": 200.0
+      },
+      "message": "Walkway width between P019 and P021 is 200.0 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P019",
+            "P021"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V052"
+    },
+    {
+      "affected_placement_ids": [
+        "P021",
+        "P023"
+      ],
+      "measured": {
+        "walkway_width_mm": 200.0
+      },
+      "message": "Walkway width between P021 and P023 is 200.0 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P021",
+            "P023"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V053"
+    },
+    {
+      "affected_placement_ids": [
+        "P023",
+        "P025"
+      ],
+      "measured": {
+        "walkway_width_mm": 200.0
+      },
+      "message": "Walkway width between P023 and P025 is 200.0 mm (< 900 mm).",
+      "repair_options": [
+        {
+          "action": "widen_aisle",
+          "placement_ids": [
+            "P023",
+            "P025"
+          ]
+        }
+      ],
+      "required": {
+        "min_walkway_mm": 900
+      },
+      "rule_id": "RB-GEO-001",
+      "violation_id": "V054"
+    }
+  ]
+}
