@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-600 -600 8400 6600" width="100%" height="100%" style="background:#0f172a; font-family:system-ui, -apple-system, sans-serif;">
+  <defs>
+    <pattern id="grid" width="500" height="500" patternUnits="userSpaceOnUse">
+      <path d="M 500 0 L 0 0 0 500" fill="none" stroke="#1e293b" stroke-width="15"/>
+    </pattern>
+    <linearGradient id="egressGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#059669" stop-opacity="0.15"/>
+    </linearGradient>
+  </defs>
+  <rect x="-600" y="-600" width="8400" height="6600" fill="url(#grid)"/>
+  <!-- Egress Path -->
+  <polygon points="642.1,4982.4 6242.1,182.4 6957.9,1017.6 1357.9,5817.6" fill="url(#egressGrad)" stroke="#10b981" stroke-width="20" stroke-dasharray="100,50"/>
+  <line x1="1000.0" y1="5400.0" x2="6600.0" y2="600.0" stroke="#34d399" stroke-width="25" stroke-dasharray="80,40"/>
+  <!-- Room Boundary -->
+  <polygon points="0.0,5400.0 7200.0,5400.0 7200.0,0.0 0.0,0.0" fill="#1e293b" fill-opacity="0.5" stroke="#94a3b8" stroke-width="80" stroke-linejoin="round"/>
+  <line x1="1200.0" y1="0.0" x2="4800.0" y2="0.0" stroke="#38bdf8" stroke-width="120" stroke-linecap="square"/>
+  <line x1="500.0" y1="5400.0" x2="1500.0" y2="5400.0" stroke="#f59e0b" stroke-width="140" stroke-linecap="round"/>
+  <!-- Furniture Placements -->
+  <g id="P001">
+    <polygon points="400.0,1300.0 2000.0,1300.0 2000.0,700.0 400.0,700.0" fill="#3b82f6" fill-opacity="0.8" stroke="#1d4ed8" stroke-width="25" rx="20"/>
+    <text x="1200.0" y="1046.7" fill="#ffffff" font-size="140" font-weight="bold" text-anchor="middle">P001</text>
+  </g>
+  <g id="P002">
+    <polygon points="2000.0,1300.0 3600.0,1300.0 3600.0,700.0 2000.0,700.0" fill="#3b82f6" fill-opacity="0.8" stroke="#1d4ed8" stroke-width="25" rx="20"/>
+    <text x="2800.0" y="1046.7" fill="#ffffff" font-size="140" font-weight="bold" text-anchor="middle">P002</text>
+  </g>
+  <g id="P003">
+    <polygon points="400.0,1900.0 2000.0,1900.0 2000.0,1300.0 400.0,1300.0" fill="#3b82f6" fill-opacity="0.8" stroke="#1d4ed8" stroke-width="25" rx="20"/>
+    <text x="1200.0" y="1646.7" fill="#ffffff" font-size="140" font-weight="bold" text-anchor="middle">P003</text>
+  </g>
+  <g id="P004">
+    <polygon points="2000.0,1900.0 3600.0,1900.0 3600.0,1300.0 2000.0,1300.0" fill="#3b82f6" fill-opacity="0.8" stroke="#1d4ed8" stroke-width="25" rx="20"/>
+    <text x="2800.0" y="1646.7" fill="#ffffff" font-size="140" font-weight="bold" text-anchor="middle">P004</text>
+  </g>
+  <g id="P005">
+    <polygon points="480.0,660.0 1120.0,660.0 1120.0,140.0 480.0,140.0" fill="#f97316" fill-opacity="0.8" stroke="#c2410c" stroke-width="25" rx="20"/>
+    <text x="800.0" y="433.3" fill="#ffffff" font-size="100" font-weight="bold" text-anchor="middle">P005</text>
+  </g>
+  <g id="P006">
+    <polygon points="1280.0,660.0 1920.0,660.0 1920.0,140.0 1280.0,140.0" fill="#f97316" fill-opacity="0.8" stroke="#c2410c" stroke-width="25" rx="20"/>
+    <text x="1600.0" y="433.3" fill="#ffffff" font-size="100" font-weight="bold" text-anchor="middle">P006</text>
+  </g>
+  <g id="P007">
+    <polygon points="2080.0,660.0 2720.0,660.0 2720.0,140.0 2080.0,140.0" fill="#f97316" fill-opacity="0.8" stroke="#c2410c" stroke-width="25" rx="20"/>
+    <text x="2400.0" y="433.3" fill="#ffffff" font-size="100" font-weight="bold" text-anchor="middle">P007</text>
+  </g>
+  <g id="P008">
+    <polygon points="2880.0,660.0 3520.0,660.0 3520.0,140.0 2880.0,140.0" fill="#f97316" fill-opacity="0.8" stroke="#c2410c" stroke-width="25" rx="20"/>
+    <text x="3200.0" y="433.3" fill="#ffffff" font-size="100" font-weight="bold" text-anchor="middle">P008</text>
+  </g>
+  <g id="P009">
+    <polygon points="480.0,2460.0 1120.0,2460.0 1120.0,1940.0 480.0,1940.0" fill="#f97316" fill-opacity="0.8" stroke="#c2410c" stroke-width="25" rx="20"/>
+    <text x="800.0" y="2233.3" fill="#ffffff" font-size="100" font-weight="bold" text-anchor="middle">P009</text>
+  </g>
+  <g id="P010">
+    <polygon points="1280.0,2460.0 1920.0,2460.0 1920.0,1940.0 1280.0,1940.0" fill="#f97316" fill-opacity="0.8" stroke="#c2410c" stroke-width="25" rx="20"/>
+    <text x="1600.0" y="2233.3" fill="#ffffff" font-size="100" font-weight="bold" text-anchor="middle">P010</text>
+  </g>
+  <g id="P011">
+    <polygon points="2080.0,2460.0 2720.0,2460.0 2720.0,1940.0 2080.0,1940.0" fill="#f97316" fill-opacity="0.8" stroke="#c2410c" stroke-width="25" rx="20"/>
+    <text x="2400.0" y="2233.3" fill="#ffffff" font-size="100" font-weight="bold" text-anchor="middle">P011</text>
+  </g>
+  <g id="P012">
+    <polygon points="2880.0,2460.0 3520.0,2460.0 3520.0,1940.0 2880.0,1940.0" fill="#f97316" fill-opacity="0.8" stroke="#c2410c" stroke-width="25" rx="20"/>
+    <text x="3200.0" y="2233.3" fill="#ffffff" font-size="100" font-weight="bold" text-anchor="middle">P012</text>
+  </g>
+  <g id="P013">
+    <polygon points="5400.0,4100.0 7000.0,4100.0 7000.0,3500.0 5400.0,3500.0" fill="#3b82f6" fill-opacity="0.8" stroke="#1d4ed8" stroke-width="25" rx="20"/>
+    <text x="6200.0" y="3846.7" fill="#ffffff" font-size="140" font-weight="bold" text-anchor="middle">P013</text>
+  </g>
+  <g id="P014">
+    <polygon points="5400.0,4700.0 7000.0,4700.0 7000.0,4100.0 5400.0,4100.0" fill="#3b82f6" fill-opacity="0.8" stroke="#1d4ed8" stroke-width="25" rx="20"/>
+    <text x="6200.0" y="4446.7" fill="#ffffff" font-size="140" font-weight="bold" text-anchor="middle">P014</text>
+  </g>
+  <g id="P015">
+    <polygon points="5480.0,3460.0 6120.0,3460.0 6120.0,2940.0 5480.0,2940.0" fill="#f97316" fill-opacity="0.8" stroke="#c2410c" stroke-width="25" rx="20"/>
+    <text x="5800.0" y="3233.3" fill="#ffffff" font-size="100" font-weight="bold" text-anchor="middle">P015</text>
+  </g>
+  <g id="P016">
+    <polygon points="6280.0,3460.0 6920.0,3460.0 6920.0,2940.0 6280.0,2940.0" fill="#f97316" fill-opacity="0.8" stroke="#c2410c" stroke-width="25" rx="20"/>
+    <text x="6600.0" y="3233.3" fill="#ffffff" font-size="100" font-weight="bold" text-anchor="middle">P016</text>
+  </g>
+  <g id="P017">
+    <polygon points="5480.0,5260.0 6120.0,5260.0 6120.0,4740.0 5480.0,4740.0" fill="#f97316" fill-opacity="0.8" stroke="#c2410c" stroke-width="25" rx="20"/>
+    <text x="5800.0" y="5033.3" fill="#ffffff" font-size="100" font-weight="bold" text-anchor="middle">P017</text>
+  </g>
+  <g id="P018">
+    <polygon points="6280.0,5260.0 6920.0,5260.0 6920.0,4740.0 6280.0,4740.0" fill="#f97316" fill-opacity="0.8" stroke="#c2410c" stroke-width="25" rx="20"/>
+    <text x="6600.0" y="5033.3" fill="#ffffff" font-size="100" font-weight="bold" text-anchor="middle">P018</text>
+  </g>
+  <g id="P019">
+    <polygon points="4450.0,5050.0 4450.0,3850.0 3750.0,3850.0 3750.0,5050.0" fill="#10b981" fill-opacity="0.8" stroke="#047857" stroke-width="25" rx="20"/>
+    <text x="4100.0" y="4496.7" fill="#ffffff" font-size="140" font-weight="bold" text-anchor="middle">P019</text>
+  </g>
+  <g id="P020">
+    <polygon points="3600.0,550.0 4600.0,550.0 4600.0,150.0 3600.0,150.0" fill="#8b5cf6" fill-opacity="0.8" stroke="#6d28d9" stroke-width="25" rx="20"/>
+    <text x="4100.0" y="383.3" fill="#ffffff" font-size="100" font-weight="bold" text-anchor="middle">P020</text>
+  </g>
+  <g id="P021">
+    <polygon points="4600.0,550.0 5600.0,550.0 5600.0,150.0 4600.0,150.0" fill="#8b5cf6" fill-opacity="0.8" stroke="#6d28d9" stroke-width="25" rx="20"/>
+    <text x="5100.0" y="383.3" fill="#ffffff" font-size="100" font-weight="bold" text-anchor="middle">P021</text>
+  </g>
+  <!-- Room Title -->
+  <text x="100" y="250" fill="#f8fafc" font-size="280" font-weight="bold">Harbour Design Studio (ROOM-01)</text>
+  <text x="100" y="550" fill="#94a3b8" font-size="160">Status: VALID | Placements: 21 | Violations: 0</text>
+</svg>

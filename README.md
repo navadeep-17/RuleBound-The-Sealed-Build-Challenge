@@ -62,3 +62,23 @@ python tools/check_determinism.py --command "python run.py --input {input} --out
 ```bash
 python -m unittest discover -s tests -p "test_*.py"
 ```
+
+### Optional Bonus Features
+
+#### 1. Explain Any Price Line by Retrieving Its Trace
+Retrieve full arithmetic citations and rule breakdowns directly from the CLI:
+```bash
+# Explain an individual line item's calculations and rules
+python run.py --explain ROOM-01 --line L001
+
+# Explain complete quote and financial breakdown for a room
+python run.py --explain ROOM-01
+
+# Inspect a blocked quote's explicit constraint violation reasons
+python run.py --explain ROOM-03
+```
+
+#### 2. Vector CAD Floorplans (DXF & Browser SVG)
+For every room, the runner generates both:
+- `plan.dxf`: Industry-standard AutoCAD Release 12 / 2000 ASCII DXF file.
+- `plan.svg`: Interactive scaled vector floorplan viewable directly in any web browser (Chrome, Edge, Safari) showing room boundary, egress corridor, doors with swing arcs, windows, and categorized furniture items.
