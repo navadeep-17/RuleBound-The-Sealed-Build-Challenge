@@ -78,8 +78,12 @@
     <text x="3800.0" y="3233.3" fill="#ffffff" font-size="100" font-weight="bold" text-anchor="middle">P015</text>
   </g>
   <g id="P016">
-    <polygon points="3380.0,1780.0 4020.0,1780.0 4020.0,1220.0 3380.0,1220.0" fill="#f97316" fill-opacity="0.8" stroke="#c2410c" stroke-width="25" rx="20"/>
-    <text x="3700.0" y="1533.3" fill="#ffffff" font-size="100" font-weight="bold" text-anchor="middle">P016</text>
+    <polygon points="3380.0,1480.0 4020.0,1480.0 4020.0,920.0 3380.0,920.0" fill="#f97316" fill-opacity="0.8" stroke="#c2410c" stroke-width="25" rx="20"/>
+    <text x="3700.0" y="1233.3" fill="#ffffff" font-size="100" font-weight="bold" text-anchor="middle">P016</text>
+  </g>
+  <g id="P017">
+    <polygon points="800.0,1750.0 3200.0,1750.0 3200.0,1050.0 800.0,1050.0" fill="#10b981" fill-opacity="0.8" stroke="#047857" stroke-width="25" rx="20"/>
+    <text x="2000.0" y="1446.7" fill="#ffffff" font-size="140" font-weight="bold" text-anchor="middle">P017</text>
   </g>
   <g id="P018">
     <polygon points="1180.0,1680.0 1820.0,1680.0 1820.0,1120.0 1180.0,1120.0" fill="#f97316" fill-opacity="0.8" stroke="#c2410c" stroke-width="25" rx="20"/>
@@ -93,11 +97,23 @@
     <polygon points="1590.0,5300.0 1590.0,4700.0 1410.0,4700.0 1410.0,5300.0" fill="#ec4899" fill-opacity="0.8" stroke="#be185d" stroke-width="25" rx="20"/>
     <text x="1500.0" y="5033.3" fill="#ffffff" font-size="100" font-weight="bold" text-anchor="middle">P020</text>
   </g>
+  <g id="P022">
+    <polygon points="1590.0,3300.0 1590.0,2700.0 1410.0,2700.0 1410.0,3300.0" fill="#ec4899" fill-opacity="0.8" stroke="#be185d" stroke-width="25" rx="20"/>
+    <text x="1500.0" y="3033.3" fill="#ffffff" font-size="100" font-weight="bold" text-anchor="middle">P022</text>
+  </g>
+  <g id="P023">
+    <polygon points="6290.0,5000.0 6290.0,4400.0 6110.0,4400.0 6110.0,5000.0" fill="#ec4899" fill-opacity="0.8" stroke="#be185d" stroke-width="25" rx="20"/>
+    <text x="6200.0" y="4733.3" fill="#ffffff" font-size="100" font-weight="bold" text-anchor="middle">P023</text>
+  </g>
+  <g id="P024">
+    <polygon points="6290.0,3800.0 6290.0,3200.0 6110.0,3200.0 6110.0,3800.0" fill="#ec4899" fill-opacity="0.8" stroke="#be185d" stroke-width="25" rx="20"/>
+    <text x="6200.0" y="3533.3" fill="#ffffff" font-size="100" font-weight="bold" text-anchor="middle">P024</text>
+  </g>
   <g id="P025">
     <polygon points="6290.0,2600.0 6290.0,2000.0 6110.0,2000.0 6110.0,2600.0" fill="#ec4899" fill-opacity="0.8" stroke="#be185d" stroke-width="25" rx="20"/>
     <text x="6200.0" y="2333.3" fill="#ffffff" font-size="100" font-weight="bold" text-anchor="middle">P025</text>
   </g>
   <!-- Room Title -->
   <text x="100" y="250" fill="#f8fafc" font-size="280" font-weight="bold">Nimbus Hybrid Team Room (ROOM-03)</text>
-  <text x="100" y="550" fill="#94a3b8" font-size="160">Status: UNSATISFIABLE | Placements: 20 | Violations: 16</text>
+  <text x="100" y="550" fill="#94a3b8" font-size="160">Status: UNSATISFIABLE | Placements: 24 | Violations: 25</text>
 </svg>

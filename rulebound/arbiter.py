@@ -1,10 +1,9 @@
-from __future__ import annotations
-
+import math
 from dataclasses import dataclass
 from typing import Any, Literal
 
 from rulebound.models import CatalogItem, Layout, Placement, RoomSpec, Violation
-from rulebound.spatial_engine import validate_spatial_rules
+from rulebound.spatial_engine import get_door_geometry, validate_spatial_rules
 
 
 @dataclass
@@ -16,11 +15,72 @@ class ArbitrationResult:
     escalation_report: dict[str, Any] | None = None
 
 
+def compute_relaxation_vectors(
+    room: RoomSpec,
+    target_v: Violation,
+    placement: Placement,
+    catalog_by_sku: dict[str, CatalogItem],
+) -> list[tuple[int, int]]:
+    """Calculates vector-directed physical relaxation nudges tailored to the specific geometric rule violation."""
+    vectors: list[tuple[int, int]] = []
+    rule_id = target_v.rule_id
+
+    if rule_id == "RB-GEO-005":
+        # Wall encroachment: push toward center of the room
+        cx = sum(pt[0] for pt in room.boundary_mm) / len(room.boundary_mm)
+        cy = sum(pt[1] for pt in room.boundary_mm) / len(room.boundary_mm)
+        dx = cx - placement.x_mm
+        dy = cy - placement.y_mm
+        d = math.hypot(dx, dy)
+        if d > 0:
+            for step in (120, 200, 300):
+                vectors.append((int(round(dx / d * step)), int(round(dy / d * step))))
+
+    elif rule_id == "RB-GEO-002":
+        # Egress corridor: push along the perpendicular normal away from the corridor
+        egress_door = next((dr for dr in room.doors if dr.door_id == room.egress.from_door_id), room.doors[0] if room.doors else None)
+        if egress_door:
+            h, l, _ = get_door_geometry(egress_door, room.boundary_mm)
+            p1 = ((h[0] + l[0]) / 2.0, (h[1] + l[1]) / 2.0)
+            p2 = (float(room.egress.to_point_mm[0]), float(room.egress.to_point_mm[1]))
+            seg_dx = p2[0] - p1[0]
+            seg_dy = p2[1] - p1[1]
+            seg_len = math.hypot(seg_dx, seg_dy)
+            if seg_len > 0:
+                nx = -seg_dy / seg_len
+                ny = seg_dx / seg_len
+                side = (placement.x_mm - p1[0]) * nx + (placement.y_mm - p1[1]) * ny
+                sign = 1.0 if side >= 0 else -1.0
+                for step in (150, 250, 400):
+                    vectors.append((int(round(sign * nx * step)), int(round(sign * ny * step))))
+                    vectors.append((int(round(-sign * nx * step)), int(round(-sign * ny * step))))
+
+    elif rule_id == "RB-GEO-003":
+        # Door swing: push radially outward from door hinge
+        for door in room.doors:
+            hinge, latch, _ = get_door_geometry(door, room.boundary_mm)
+            dx = placement.x_mm - hinge[0]
+            dy = placement.y_mm - hinge[1]
+            d = math.hypot(dx, dy)
+            if d > 0:
+                for step in (150, 300, 450):
+                    vectors.append((int(round(dx / d * step)), int(round(dy / d * step))))
+
+    # Standard orthogonal and diagonal exploration vectors
+    for dist in (100, 200, 300):
+        vectors.extend([
+            (dist, 0), (-dist, 0), (0, dist), (0, -dist),
+            (dist, dist), (-dist, dist), (dist, -dist), (-dist, -dist),
+        ])
+
+    return vectors
+
+
 def arbitrate_layout(
     room: RoomSpec,
     initial_placements: list[Placement],
     catalog_by_sku: dict[str, CatalogItem],
-    max_iterations: int = 10,
+    max_iterations: int = 6,
 ) -> ArbitrationResult:
     """Bounded, provably terminating arbitration loop for spatial layout repair.
     
@@ -60,12 +120,6 @@ def arbitrate_layout(
     iteration = 0
     eps = 1.0
 
-    # 4 cardinal nudges for fast, targeted continuous relaxation
-    step_deltas = [
-        (100, 0), (-100, 0), (0, 100), (0, -100),
-        (200, 0), (-200, 0), (0, 200), (0, -200),
-    ]
-
     while iteration < max_iterations and current_energy > 0.0:
         iteration += 1
         best_nudge_energy = current_energy
@@ -73,7 +127,7 @@ def arbitrate_layout(
         best_new_x = 0
         best_new_y = 0
 
-        # Phase A: Targeted Continuous Relaxation on worst violation
+        # Phase A: Vector-Directed Continuous Relaxation on worst violation
         target_v = current_violations[0]
         candidate_ids = set(target_v.affected_placement_ids)
 
@@ -81,8 +135,9 @@ def arbitrate_layout(
             if p.placement_id not in candidate_ids:
                 continue
 
+            vectors = compute_relaxation_vectors(room, target_v, p, catalog_by_sku)
             orig_x, orig_y = p.x_mm, p.y_mm
-            for dx, dy in step_deltas:
+            for dx, dy in vectors:
                 p.x_mm = orig_x + dx
                 p.y_mm = orig_y + dy
                 _, e_test = validate_spatial_rules(room, placements, catalog_by_sku)
@@ -102,19 +157,16 @@ def arbitrate_layout(
             continue
 
         # Phase B: Discrete Pruning (strictly decreasing N)
-        # Find the placement involved in the most / highest-energy violations
         conflicted_ids = {pid for v in current_violations for pid in v.affected_placement_ids}
         conflict_scores: dict[str, float] = {}
         for v in current_violations:
             for pid in v.affected_placement_ids:
                 conflict_scores[pid] = conflict_scores.get(pid, 0.0) + 1.0
 
-        # Lower priority to accessories, higher to desks/chairs
         def prune_priority(p: Placement) -> tuple[int, float]:
             item = catalog_by_sku.get(p.sku)
             fam = item.family if item else "unknown"
-            fam_score = {"accessory": 0, "storage": 1, "collaboration": 2, "desk": 3, "chair": 4}.get(fam, 5)
-            # We want to prune accessories first, then storage, then most-conflicted
+            fam_score = {"accessory": 0, "storage": 1, "collaboration": 2, "chair": 3, "desk": 4}.get(fam, 5)
             return (fam_score, -conflict_scores.get(p.placement_id, 0.0))
 
         prune_candidate = min(
@@ -136,17 +188,30 @@ def arbitrate_layout(
         final_status = "valid"
     else:
         final_status = "unsatisfiable"
+        desks_remaining = len([p for p in placements if catalog_by_sku.get(p.sku, None) and catalog_by_sku[p.sku].family == "desk"])
+        tradeoff_recommendations = [
+            f"Reduce target capacity from {room.capacity} to {max(1, desks_remaining)} to preserve the egress diagonal corridor.",
+            "Select compact footprint furniture (e.g. 1200 mm width) to satisfy clearance corridors.",
+            "Reroute presentation point or egress corridor to free up perimeter floor area.",
+        ]
+
+        # Enrich surviving violations with structured tradeoff repair options conforming to violation schema
+        for v in current_violations:
+            v.repair_options.append({
+                "action": "escalate_tradeoff",
+                "strategy": "capacity_reduction",
+                "recommendation": tradeoff_recommendations[0],
+            })
+
         escalation_report = {
+            "escalation": "UNSATISFIABLE_LAYOUT",
             "room_id": room.room_id,
             "required_capacity": room.capacity,
             "achieved_placements": len(placements),
-            "residual_energy": current_energy,
+            "residual_energy": round(current_energy, 1),
             "surviving_violations": [v.to_dict() for v in current_violations],
-            "human_tradeoff_options": [
-                f"Reduce target capacity from {room.capacity} to {max(1, len(placements))}.",
-                "Select smaller footprint desks (e.g. 1200 mm width) to satisfy clearance corridors.",
-                "Reroute presentation point or egress corridor to free up perimeter floor area.",
-            ],
+            "tradeoff_recommendations": tradeoff_recommendations,
+            "human_tradeoff_options": tradeoff_recommendations,
         }
 
     layout = Layout(

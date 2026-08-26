@@ -6,7 +6,7 @@
       "rotation_deg": 0,
       "sku": "NW-DES-014",
       "x_mm": 1700,
-      "y_mm": 4400
+      "y_mm": 4300
     },
     {
       "finish_id": "F10",
@@ -14,7 +14,7 @@
       "rotation_deg": 0,
       "sku": "NW-CHA-015",
       "x_mm": 1700,
-      "y_mm": 3800
+      "y_mm": 3700
     },
     {
       "finish_id": "F02",
@@ -22,7 +22,7 @@
       "rotation_deg": 0,
       "sku": "NW-DES-014",
       "x_mm": 3500,
-      "y_mm": 4400
+      "y_mm": 4300
     },
     {
       "finish_id": "F10",
@@ -46,7 +46,7 @@
       "rotation_deg": 0,
       "sku": "NW-CHA-015",
       "x_mm": 1700,
-      "y_mm": 5900
+      "y_mm": 5800
     },
     {
       "finish_id": "F02",
@@ -62,7 +62,7 @@
       "rotation_deg": 0,
       "sku": "NW-CHA-015",
       "x_mm": 3500,
-      "y_mm": 5900
+      "y_mm": 5800
     },
     {
       "finish_id": "F02",
@@ -70,7 +70,7 @@
       "rotation_deg": 0,
       "sku": "NW-DES-014",
       "x_mm": 4900,
-      "y_mm": 4400
+      "y_mm": 4300
     },
     {
       "finish_id": "F10",
@@ -78,7 +78,7 @@
       "rotation_deg": 0,
       "sku": "NW-CHA-015",
       "x_mm": 4900,
-      "y_mm": 3200
+      "y_mm": 3800
     },
     {
       "finish_id": "F02",
@@ -86,7 +86,7 @@
       "rotation_deg": 0,
       "sku": "NW-DES-014",
       "x_mm": 6700,
-      "y_mm": 4400
+      "y_mm": 4300
     },
     {
       "finish_id": "F10",
@@ -174,7 +174,7 @@
       "rotation_deg": 0,
       "sku": "NW-CHA-015",
       "x_mm": 1700,
-      "y_mm": 3200
+      "y_mm": 3600
     },
     {
       "finish_id": "F02",
@@ -258,27 +258,11 @@
     },
     {
       "finish_id": "F05",
-      "placement_id": "P034",
-      "rotation_deg": 90,
-      "sku": "NW-STO-008",
-      "x_mm": 500,
-      "y_mm": 5000
-    },
-    {
-      "finish_id": "F05",
       "placement_id": "P035",
       "rotation_deg": 90,
       "sku": "NW-STO-008",
       "x_mm": 8000,
       "y_mm": 2000
-    },
-    {
-      "finish_id": "F05",
-      "placement_id": "P036",
-      "rotation_deg": 90,
-      "sku": "NW-STO-008",
-      "x_mm": 8000,
-      "y_mm": 3200
     },
     {
       "finish_id": "F01",
@@ -318,6 +302,369 @@
   "violations": [
     {
       "affected_placement_ids": [
+        "P002",
+        "P022"
+      ],
+      "measured": {
+        "overlap": true
+      },
+      "message": "Footprints of P002 and P022 overlap.",
+      "repair_options": [
+        {
+          "action": "separate",
+          "placement_ids": [
+            "P002",
+            "P022"
+          ]
+        },
+        {
+          "action": "remove",
+          "placement_id": "P022"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "overlap": false
+      },
+      "rule_id": "RB-GEO-006",
+      "violation_id": "V001"
+    },
+    {
+      "affected_placement_ids": [
+        "P003",
+        "P004"
+      ],
+      "measured": {
+        "overlap": true
+      },
+      "message": "Footprints of P003 and P004 overlap.",
+      "repair_options": [
+        {
+          "action": "separate",
+          "placement_ids": [
+            "P003",
+            "P004"
+          ]
+        },
+        {
+          "action": "remove",
+          "placement_id": "P004"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "overlap": false
+      },
+      "rule_id": "RB-GEO-006",
+      "violation_id": "V002"
+    },
+    {
+      "affected_placement_ids": [
+        "P005",
+        "P006"
+      ],
+      "measured": {
+        "overlap": true
+      },
+      "message": "Footprints of P005 and P006 overlap.",
+      "repair_options": [
+        {
+          "action": "separate",
+          "placement_ids": [
+            "P005",
+            "P006"
+          ]
+        },
+        {
+          "action": "remove",
+          "placement_id": "P006"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "overlap": false
+      },
+      "rule_id": "RB-GEO-006",
+      "violation_id": "V003"
+    },
+    {
+      "affected_placement_ids": [
+        "P007",
+        "P008"
+      ],
+      "measured": {
+        "overlap": true
+      },
+      "message": "Footprints of P007 and P008 overlap.",
+      "repair_options": [
+        {
+          "action": "separate",
+          "placement_ids": [
+            "P007",
+            "P008"
+          ]
+        },
+        {
+          "action": "remove",
+          "placement_id": "P008"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "overlap": false
+      },
+      "rule_id": "RB-GEO-006",
+      "violation_id": "V004"
+    },
+    {
+      "affected_placement_ids": [
+        "P009",
+        "P010"
+      ],
+      "measured": {
+        "overlap": true
+      },
+      "message": "Footprints of P009 and P010 overlap.",
+      "repair_options": [
+        {
+          "action": "separate",
+          "placement_ids": [
+            "P009",
+            "P010"
+          ]
+        },
+        {
+          "action": "remove",
+          "placement_id": "P010"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "overlap": false
+      },
+      "rule_id": "RB-GEO-006",
+      "violation_id": "V005"
+    },
+    {
+      "affected_placement_ids": [
+        "P009",
+        "P030"
+      ],
+      "measured": {
+        "overlap": true
+      },
+      "message": "Footprints of P009 and P030 overlap.",
+      "repair_options": [
+        {
+          "action": "separate",
+          "placement_ids": [
+            "P009",
+            "P030"
+          ]
+        },
+        {
+          "action": "remove",
+          "placement_id": "P030"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "overlap": false
+      },
+      "rule_id": "RB-GEO-006",
+      "violation_id": "V006"
+    },
+    {
+      "affected_placement_ids": [
+        "P009",
+        "P031"
+      ],
+      "measured": {
+        "overlap": true
+      },
+      "message": "Footprints of P009 and P031 overlap.",
+      "repair_options": [
+        {
+          "action": "separate",
+          "placement_ids": [
+            "P009",
+            "P031"
+          ]
+        },
+        {
+          "action": "remove",
+          "placement_id": "P031"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "overlap": false
+      },
+      "rule_id": "RB-GEO-006",
+      "violation_id": "V007"
+    },
+    {
+      "affected_placement_ids": [
+        "P010",
+        "P030"
+      ],
+      "measured": {
+        "overlap": true
+      },
+      "message": "Footprints of P010 and P030 overlap.",
+      "repair_options": [
+        {
+          "action": "separate",
+          "placement_ids": [
+            "P010",
+            "P030"
+          ]
+        },
+        {
+          "action": "remove",
+          "placement_id": "P030"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "overlap": false
+      },
+      "rule_id": "RB-GEO-006",
+      "violation_id": "V008"
+    },
+    {
+      "affected_placement_ids": [
+        "P011",
+        "P012"
+      ],
+      "measured": {
+        "overlap": true
+      },
+      "message": "Footprints of P011 and P012 overlap.",
+      "repair_options": [
+        {
+          "action": "separate",
+          "placement_ids": [
+            "P011",
+            "P012"
+          ]
+        },
+        {
+          "action": "remove",
+          "placement_id": "P012"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "overlap": false
+      },
+      "rule_id": "RB-GEO-006",
+      "violation_id": "V009"
+    },
+    {
+      "affected_placement_ids": [
+        "P011",
+        "P031"
+      ],
+      "measured": {
+        "overlap": true
+      },
+      "message": "Footprints of P011 and P031 overlap.",
+      "repair_options": [
+        {
+          "action": "separate",
+          "placement_ids": [
+            "P011",
+            "P031"
+          ]
+        },
+        {
+          "action": "remove",
+          "placement_id": "P031"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "overlap": false
+      },
+      "rule_id": "RB-GEO-006",
+      "violation_id": "V010"
+    },
+    {
+      "affected_placement_ids": [
+        "P011",
+        "P032"
+      ],
+      "measured": {
+        "overlap": true
+      },
+      "message": "Footprints of P011 and P032 overlap.",
+      "repair_options": [
+        {
+          "action": "separate",
+          "placement_ids": [
+            "P011",
+            "P032"
+          ]
+        },
+        {
+          "action": "remove",
+          "placement_id": "P032"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "overlap": false
+      },
+      "rule_id": "RB-GEO-006",
+      "violation_id": "V011"
+    },
+    {
+      "affected_placement_ids": [
         "P012",
         "P032"
       ],
@@ -336,13 +683,18 @@
         {
           "action": "remove",
           "placement_id": "P032"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "overlap": false
       },
       "rule_id": "RB-GEO-006",
-      "violation_id": "V001"
+      "violation_id": "V012"
     },
     {
       "affected_placement_ids": [
@@ -364,13 +716,18 @@
         {
           "action": "remove",
           "placement_id": "P014"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "overlap": false
       },
       "rule_id": "RB-GEO-006",
-      "violation_id": "V002"
+      "violation_id": "V013"
     },
     {
       "affected_placement_ids": [
@@ -392,13 +749,18 @@
         {
           "action": "remove",
           "placement_id": "P016"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "overlap": false
       },
       "rule_id": "RB-GEO-006",
-      "violation_id": "V003"
+      "violation_id": "V014"
     },
     {
       "affected_placement_ids": [
@@ -420,13 +782,18 @@
         {
           "action": "remove",
           "placement_id": "P018"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "overlap": false
       },
       "rule_id": "RB-GEO-006",
-      "violation_id": "V004"
+      "violation_id": "V015"
     },
     {
       "affected_placement_ids": [
@@ -448,41 +815,18 @@
         {
           "action": "remove",
           "placement_id": "P020"
-        }
-      ],
-      "required": {
-        "overlap": false
-      },
-      "rule_id": "RB-GEO-006",
-      "violation_id": "V005"
-    },
-    {
-      "affected_placement_ids": [
-        "P021",
-        "P022"
-      ],
-      "measured": {
-        "overlap": true
-      },
-      "message": "Footprints of P021 and P022 overlap.",
-      "repair_options": [
-        {
-          "action": "separate",
-          "placement_ids": [
-            "P021",
-            "P022"
-          ]
         },
         {
-          "action": "remove",
-          "placement_id": "P022"
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "overlap": false
       },
       "rule_id": "RB-GEO-006",
-      "violation_id": "V006"
+      "violation_id": "V016"
     },
     {
       "affected_placement_ids": [
@@ -504,13 +848,18 @@
         {
           "action": "remove",
           "placement_id": "P024"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "overlap": false
       },
       "rule_id": "RB-GEO-006",
-      "violation_id": "V007"
+      "violation_id": "V017"
     },
     {
       "affected_placement_ids": [
@@ -532,13 +881,18 @@
         {
           "action": "remove",
           "placement_id": "P026"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "overlap": false
       },
       "rule_id": "RB-GEO-006",
-      "violation_id": "V008"
+      "violation_id": "V018"
     },
     {
       "affected_placement_ids": [
@@ -560,13 +914,18 @@
         {
           "action": "remove",
           "placement_id": "P027"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "overlap": false
       },
       "rule_id": "RB-GEO-006",
-      "violation_id": "V009"
+      "violation_id": "V019"
     },
     {
       "affected_placement_ids": [
@@ -588,13 +947,18 @@
         {
           "action": "remove",
           "placement_id": "P028"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "overlap": false
       },
       "rule_id": "RB-GEO-006",
-      "violation_id": "V010"
+      "violation_id": "V020"
     },
     {
       "affected_placement_ids": [
@@ -616,13 +980,18 @@
         {
           "action": "remove",
           "placement_id": "P030"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "overlap": false
       },
       "rule_id": "RB-GEO-006",
-      "violation_id": "V011"
+      "violation_id": "V021"
     },
     {
       "affected_placement_ids": [
@@ -644,13 +1013,18 @@
         {
           "action": "remove",
           "placement_id": "P031"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "overlap": false
       },
       "rule_id": "RB-GEO-006",
-      "violation_id": "V012"
+      "violation_id": "V022"
     },
     {
       "affected_placement_ids": [
@@ -672,50 +1046,27 @@
         {
           "action": "remove",
           "placement_id": "P032"
-        }
-      ],
-      "required": {
-        "overlap": false
-      },
-      "rule_id": "RB-GEO-006",
-      "violation_id": "V013"
-    },
-    {
-      "affected_placement_ids": [
-        "P035",
-        "P036"
-      ],
-      "measured": {
-        "overlap": true
-      },
-      "message": "Footprints of P035 and P036 overlap.",
-      "repair_options": [
-        {
-          "action": "separate",
-          "placement_ids": [
-            "P035",
-            "P036"
-          ]
         },
         {
-          "action": "remove",
-          "placement_id": "P036"
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "overlap": false
       },
       "rule_id": "RB-GEO-006",
-      "violation_id": "V014"
+      "violation_id": "V023"
     },
     {
       "affected_placement_ids": [
         "P003"
       ],
       "measured": {
-        "clearance_from_centerline_mm": 87.0
+        "clearance_from_centerline_mm": 1.1
       },
-      "message": "Placement P003 encroaches into egress path by 463.0 mm.",
+      "message": "Placement P003 encroaches into egress path by 548.9 mm.",
       "repair_options": [
         {
           "action": "translate",
@@ -725,13 +1076,18 @@
         {
           "action": "remove",
           "placement_id": "P003"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_half_width_mm": 550.0
       },
       "rule_id": "RB-GEO-002",
-      "violation_id": "V015"
+      "violation_id": "V024"
     },
     {
       "affected_placement_ids": [
@@ -750,13 +1106,18 @@
         {
           "action": "remove",
           "placement_id": "P004"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_half_width_mm": 550.0
       },
       "rule_id": "RB-GEO-002",
-      "violation_id": "V016"
+      "violation_id": "V025"
     },
     {
       "affected_placement_ids": [
@@ -775,22 +1136,57 @@
         {
           "action": "remove",
           "placement_id": "P009"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_half_width_mm": 550.0
       },
       "rule_id": "RB-GEO-002",
-      "violation_id": "V017"
+      "violation_id": "V026"
+    },
+    {
+      "affected_placement_ids": [
+        "P010"
+      ],
+      "measured": {
+        "clearance_from_centerline_mm": 151.9
+      },
+      "message": "Placement P010 encroaches into egress path by 398.1 mm.",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P010",
+          "strategy": "clear_egress"
+        },
+        {
+          "action": "remove",
+          "placement_id": "P010"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "min_half_width_mm": 550.0
+      },
+      "rule_id": "RB-GEO-002",
+      "violation_id": "V027"
     },
     {
       "affected_placement_ids": [
         "P011"
       ],
       "measured": {
-        "clearance_from_centerline_mm": 317.7
+        "clearance_from_centerline_mm": 403.6
       },
-      "message": "Placement P011 encroaches into egress path by 232.3 mm.",
+      "message": "Placement P011 encroaches into egress path by 146.4 mm.",
       "repair_options": [
         {
           "action": "translate",
@@ -800,13 +1196,18 @@
         {
           "action": "remove",
           "placement_id": "P011"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_half_width_mm": 550.0
       },
       "rule_id": "RB-GEO-002",
-      "violation_id": "V018"
+      "violation_id": "V028"
     },
     {
       "affected_placement_ids": [
@@ -825,13 +1226,18 @@
         {
           "action": "remove",
           "placement_id": "P013"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_half_width_mm": 550.0
       },
       "rule_id": "RB-GEO-002",
-      "violation_id": "V019"
+      "violation_id": "V029"
     },
     {
       "affected_placement_ids": [
@@ -850,13 +1256,18 @@
         {
           "action": "remove",
           "placement_id": "P015"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_half_width_mm": 550.0
       },
       "rule_id": "RB-GEO-002",
-      "violation_id": "V020"
+      "violation_id": "V030"
     },
     {
       "affected_placement_ids": [
@@ -875,13 +1286,18 @@
         {
           "action": "remove",
           "placement_id": "P016"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_half_width_mm": 550.0
       },
       "rule_id": "RB-GEO-002",
-      "violation_id": "V021"
+      "violation_id": "V031"
     },
     {
       "affected_placement_ids": [
@@ -900,13 +1316,18 @@
         {
           "action": "remove",
           "placement_id": "P017"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_half_width_mm": 550.0
       },
       "rule_id": "RB-GEO-002",
-      "violation_id": "V022"
+      "violation_id": "V032"
     },
     {
       "affected_placement_ids": [
@@ -925,38 +1346,18 @@
         {
           "action": "remove",
           "placement_id": "P021"
-        }
-      ],
-      "required": {
-        "min_half_width_mm": 550.0
-      },
-      "rule_id": "RB-GEO-002",
-      "violation_id": "V023"
-    },
-    {
-      "affected_placement_ids": [
-        "P022"
-      ],
-      "measured": {
-        "clearance_from_centerline_mm": 215.0
-      },
-      "message": "Placement P022 encroaches into egress path by 335.0 mm.",
-      "repair_options": [
-        {
-          "action": "translate",
-          "placement_id": "P022",
-          "strategy": "clear_egress"
         },
         {
-          "action": "remove",
-          "placement_id": "P022"
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_half_width_mm": 550.0
       },
       "rule_id": "RB-GEO-002",
-      "violation_id": "V024"
+      "violation_id": "V033"
     },
     {
       "affected_placement_ids": [
@@ -975,13 +1376,18 @@
         {
           "action": "remove",
           "placement_id": "P023"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_half_width_mm": 550.0
       },
       "rule_id": "RB-GEO-002",
-      "violation_id": "V025"
+      "violation_id": "V034"
     },
     {
       "affected_placement_ids": [
@@ -1000,13 +1406,18 @@
         {
           "action": "remove",
           "placement_id": "P024"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_half_width_mm": 550.0
       },
       "rule_id": "RB-GEO-002",
-      "violation_id": "V026"
+      "violation_id": "V035"
     },
     {
       "affected_placement_ids": [
@@ -1025,13 +1436,18 @@
         {
           "action": "remove",
           "placement_id": "P030"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_half_width_mm": 550.0
       },
       "rule_id": "RB-GEO-002",
-      "violation_id": "V027"
+      "violation_id": "V036"
     },
     {
       "affected_placement_ids": [
@@ -1049,13 +1465,18 @@
             "P001",
             "P003"
           ]
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_walkway_mm": 900
       },
       "rule_id": "RB-GEO-001",
-      "violation_id": "V028"
+      "violation_id": "V037"
     },
     {
       "affected_placement_ids": [
@@ -1063,9 +1484,9 @@
         "P005"
       ],
       "measured": {
-        "walkway_width_mm": 300.0
+        "walkway_width_mm": 400.0
       },
-      "message": "Walkway width between P001 and P005 is 300.0 mm (< 900 mm).",
+      "message": "Walkway width between P001 and P005 is 400.0 mm (< 900 mm).",
       "repair_options": [
         {
           "action": "widen_aisle",
@@ -1073,13 +1494,18 @@
             "P001",
             "P005"
           ]
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_walkway_mm": 900
       },
       "rule_id": "RB-GEO-001",
-      "violation_id": "V029"
+      "violation_id": "V038"
     },
     {
       "affected_placement_ids": [
@@ -1087,9 +1513,9 @@
         "P007"
       ],
       "measured": {
-        "walkway_width_mm": 500.0
+        "walkway_width_mm": 565.7
       },
-      "message": "Walkway width between P001 and P007 is 500.0 mm (< 900 mm).",
+      "message": "Walkway width between P001 and P007 is 565.7 mm (< 900 mm).",
       "repair_options": [
         {
           "action": "widen_aisle",
@@ -1097,13 +1523,18 @@
             "P001",
             "P007"
           ]
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_walkway_mm": 900
       },
       "rule_id": "RB-GEO-001",
-      "violation_id": "V030"
+      "violation_id": "V039"
     },
     {
       "affected_placement_ids": [
@@ -1111,9 +1542,9 @@
         "P005"
       ],
       "measured": {
-        "walkway_width_mm": 500.0
+        "walkway_width_mm": 565.7
       },
-      "message": "Walkway width between P003 and P005 is 500.0 mm (< 900 mm).",
+      "message": "Walkway width between P003 and P005 is 565.7 mm (< 900 mm).",
       "repair_options": [
         {
           "action": "widen_aisle",
@@ -1121,13 +1552,18 @@
             "P003",
             "P005"
           ]
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_walkway_mm": 900
       },
       "rule_id": "RB-GEO-001",
-      "violation_id": "V031"
+      "violation_id": "V040"
     },
     {
       "affected_placement_ids": [
@@ -1135,9 +1571,9 @@
         "P007"
       ],
       "measured": {
-        "walkway_width_mm": 300.0
+        "walkway_width_mm": 400.0
       },
-      "message": "Walkway width between P003 and P007 is 300.0 mm (< 900 mm).",
+      "message": "Walkway width between P003 and P007 is 400.0 mm (< 900 mm).",
       "repair_options": [
         {
           "action": "widen_aisle",
@@ -1145,13 +1581,18 @@
             "P003",
             "P007"
           ]
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_walkway_mm": 900
       },
       "rule_id": "RB-GEO-001",
-      "violation_id": "V032"
+      "violation_id": "V041"
     },
     {
       "affected_placement_ids": [
@@ -1159,9 +1600,9 @@
         "P013"
       ],
       "measured": {
-        "walkway_width_mm": 300.0
+        "walkway_width_mm": 400.0
       },
-      "message": "Walkway width between P003 and P013 is 300.0 mm (< 900 mm).",
+      "message": "Walkway width between P003 and P013 is 400.0 mm (< 900 mm).",
       "repair_options": [
         {
           "action": "widen_aisle",
@@ -1169,13 +1610,18 @@
             "P003",
             "P013"
           ]
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_walkway_mm": 900
       },
       "rule_id": "RB-GEO-001",
-      "violation_id": "V033"
+      "violation_id": "V042"
     },
     {
       "affected_placement_ids": [
@@ -1193,13 +1639,18 @@
             "P005",
             "P007"
           ]
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_walkway_mm": 900
       },
       "rule_id": "RB-GEO-001",
-      "violation_id": "V034"
+      "violation_id": "V043"
     },
     {
       "affected_placement_ids": [
@@ -1207,9 +1658,9 @@
         "P009"
       ],
       "measured": {
-        "walkway_width_mm": 300.0
+        "walkway_width_mm": 400.0
       },
-      "message": "Walkway width between P007 and P009 is 300.0 mm (< 900 mm).",
+      "message": "Walkway width between P007 and P009 is 400.0 mm (< 900 mm).",
       "repair_options": [
         {
           "action": "widen_aisle",
@@ -1217,13 +1668,18 @@
             "P007",
             "P009"
           ]
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_walkway_mm": 900
       },
       "rule_id": "RB-GEO-001",
-      "violation_id": "V035"
+      "violation_id": "V044"
     },
     {
       "affected_placement_ids": [
@@ -1241,13 +1697,18 @@
             "P009",
             "P011"
           ]
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_walkway_mm": 900
       },
       "rule_id": "RB-GEO-001",
-      "violation_id": "V036"
+      "violation_id": "V045"
     },
     {
       "affected_placement_ids": [
@@ -1255,9 +1716,9 @@
         "P013"
       ],
       "measured": {
-        "walkway_width_mm": 300.0
+        "walkway_width_mm": 400.0
       },
-      "message": "Walkway width between P009 and P013 is 300.0 mm (< 900 mm).",
+      "message": "Walkway width between P009 and P013 is 400.0 mm (< 900 mm).",
       "repair_options": [
         {
           "action": "widen_aisle",
@@ -1265,13 +1726,18 @@
             "P009",
             "P013"
           ]
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_walkway_mm": 900
       },
       "rule_id": "RB-GEO-001",
-      "violation_id": "V037"
+      "violation_id": "V046"
     },
     {
       "affected_placement_ids": [
@@ -1279,9 +1745,9 @@
         "P015"
       ],
       "measured": {
-        "walkway_width_mm": 500.0
+        "walkway_width_mm": 565.7
       },
-      "message": "Walkway width between P009 and P015 is 500.0 mm (< 900 mm).",
+      "message": "Walkway width between P009 and P015 is 565.7 mm (< 900 mm).",
       "repair_options": [
         {
           "action": "widen_aisle",
@@ -1289,13 +1755,18 @@
             "P009",
             "P015"
           ]
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_walkway_mm": 900
       },
       "rule_id": "RB-GEO-001",
-      "violation_id": "V038"
+      "violation_id": "V047"
     },
     {
       "affected_placement_ids": [
@@ -1303,9 +1774,9 @@
         "P029"
       ],
       "measured": {
-        "walkway_width_mm": 450.0
+        "walkway_width_mm": 350.0
       },
-      "message": "Walkway width between P009 and P029 is 450.0 mm (< 900 mm).",
+      "message": "Walkway width between P009 and P029 is 350.0 mm (< 900 mm).",
       "repair_options": [
         {
           "action": "widen_aisle",
@@ -1313,13 +1784,18 @@
             "P009",
             "P029"
           ]
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_walkway_mm": 900
       },
       "rule_id": "RB-GEO-001",
-      "violation_id": "V039"
+      "violation_id": "V048"
     },
     {
       "affected_placement_ids": [
@@ -1327,9 +1803,9 @@
         "P013"
       ],
       "measured": {
-        "walkway_width_mm": 500.0
+        "walkway_width_mm": 565.7
       },
-      "message": "Walkway width between P011 and P013 is 500.0 mm (< 900 mm).",
+      "message": "Walkway width between P011 and P013 is 565.7 mm (< 900 mm).",
       "repair_options": [
         {
           "action": "widen_aisle",
@@ -1337,13 +1813,18 @@
             "P011",
             "P013"
           ]
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_walkway_mm": 900
       },
       "rule_id": "RB-GEO-001",
-      "violation_id": "V040"
+      "violation_id": "V049"
     },
     {
       "affected_placement_ids": [
@@ -1351,9 +1832,9 @@
         "P015"
       ],
       "measured": {
-        "walkway_width_mm": 300.0
+        "walkway_width_mm": 400.0
       },
-      "message": "Walkway width between P011 and P015 is 300.0 mm (< 900 mm).",
+      "message": "Walkway width between P011 and P015 is 400.0 mm (< 900 mm).",
       "repair_options": [
         {
           "action": "widen_aisle",
@@ -1361,13 +1842,18 @@
             "P011",
             "P015"
           ]
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_walkway_mm": 900
       },
       "rule_id": "RB-GEO-001",
-      "violation_id": "V041"
+      "violation_id": "V050"
     },
     {
       "affected_placement_ids": [
@@ -1375,9 +1861,9 @@
         "P029"
       ],
       "measured": {
-        "walkway_width_mm": 450.0
+        "walkway_width_mm": 350.0
       },
-      "message": "Walkway width between P011 and P029 is 450.0 mm (< 900 mm).",
+      "message": "Walkway width between P011 and P029 is 350.0 mm (< 900 mm).",
       "repair_options": [
         {
           "action": "widen_aisle",
@@ -1385,13 +1871,18 @@
             "P011",
             "P029"
           ]
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_walkway_mm": 900
       },
       "rule_id": "RB-GEO-001",
-      "violation_id": "V042"
+      "violation_id": "V051"
     },
     {
       "affected_placement_ids": [
@@ -1409,13 +1900,18 @@
             "P013",
             "P015"
           ]
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_walkway_mm": 900
       },
       "rule_id": "RB-GEO-001",
-      "violation_id": "V043"
+      "violation_id": "V052"
     },
     {
       "affected_placement_ids": [
@@ -1433,13 +1929,18 @@
             "P017",
             "P019"
           ]
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_walkway_mm": 900
       },
       "rule_id": "RB-GEO-001",
-      "violation_id": "V044"
+      "violation_id": "V053"
     },
     {
       "affected_placement_ids": [
@@ -1457,13 +1958,18 @@
             "P017",
             "P021"
           ]
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_walkway_mm": 900
       },
       "rule_id": "RB-GEO-001",
-      "violation_id": "V045"
+      "violation_id": "V054"
     },
     {
       "affected_placement_ids": [
@@ -1481,13 +1987,18 @@
             "P017",
             "P023"
           ]
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_walkway_mm": 900
       },
       "rule_id": "RB-GEO-001",
-      "violation_id": "V046"
+      "violation_id": "V055"
     },
     {
       "affected_placement_ids": [
@@ -1505,13 +2016,18 @@
             "P019",
             "P021"
           ]
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_walkway_mm": 900
       },
       "rule_id": "RB-GEO-001",
-      "violation_id": "V047"
+      "violation_id": "V056"
     },
     {
       "affected_placement_ids": [
@@ -1529,13 +2045,18 @@
             "P019",
             "P023"
           ]
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_walkway_mm": 900
       },
       "rule_id": "RB-GEO-001",
-      "violation_id": "V048"
+      "violation_id": "V057"
     },
     {
       "affected_placement_ids": [
@@ -1553,13 +2074,18 @@
             "P021",
             "P023"
           ]
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_walkway_mm": 900
       },
       "rule_id": "RB-GEO-001",
-      "violation_id": "V049"
+      "violation_id": "V058"
     },
     {
       "affected_placement_ids": [
@@ -1577,13 +2103,396 @@
             "P025",
             "P029"
           ]
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
         }
       ],
       "required": {
         "min_walkway_mm": 900
       },
       "rule_id": "RB-GEO-001",
-      "violation_id": "V050"
+      "violation_id": "V059"
+    },
+    {
+      "affected_placement_ids": [
+        "P001",
+        "P005"
+      ],
+      "measured": {
+        "rear_clearance_mm": 400.0
+      },
+      "message": "Occupied desk P001 has only 400.0 mm rear clearance to P005 (minimum 900 mm).",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P001",
+          "strategy": "increase_rear_clearance"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "min_rear_clearance_mm": 900
+      },
+      "rule_id": "RB-GEO-004",
+      "violation_id": "V060"
+    },
+    {
+      "affected_placement_ids": [
+        "P003",
+        "P007"
+      ],
+      "measured": {
+        "rear_clearance_mm": 400.0
+      },
+      "message": "Occupied desk P003 has only 400.0 mm rear clearance to P007 (minimum 900 mm).",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P003",
+          "strategy": "increase_rear_clearance"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "min_rear_clearance_mm": 900
+      },
+      "rule_id": "RB-GEO-004",
+      "violation_id": "V061"
+    },
+    {
+      "affected_placement_ids": [
+        "P005",
+        "P001"
+      ],
+      "measured": {
+        "rear_clearance_mm": 400.0
+      },
+      "message": "Occupied desk P005 has only 400.0 mm rear clearance to P001 (minimum 900 mm).",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P005",
+          "strategy": "increase_rear_clearance"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "min_rear_clearance_mm": 900
+      },
+      "rule_id": "RB-GEO-004",
+      "violation_id": "V062"
+    },
+    {
+      "affected_placement_ids": [
+        "P007",
+        "P003"
+      ],
+      "measured": {
+        "rear_clearance_mm": 400.0
+      },
+      "message": "Occupied desk P007 has only 400.0 mm rear clearance to P003 (minimum 900 mm).",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P007",
+          "strategy": "increase_rear_clearance"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "min_rear_clearance_mm": 900
+      },
+      "rule_id": "RB-GEO-004",
+      "violation_id": "V063"
+    },
+    {
+      "affected_placement_ids": [
+        "P009",
+        "P013"
+      ],
+      "measured": {
+        "rear_clearance_mm": 400.0
+      },
+      "message": "Occupied desk P009 has only 400.0 mm rear clearance to P013 (minimum 900 mm).",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P009",
+          "strategy": "increase_rear_clearance"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "min_rear_clearance_mm": 900
+      },
+      "rule_id": "RB-GEO-004",
+      "violation_id": "V064"
+    },
+    {
+      "affected_placement_ids": [
+        "P011",
+        "P015"
+      ],
+      "measured": {
+        "rear_clearance_mm": 400.0
+      },
+      "message": "Occupied desk P011 has only 400.0 mm rear clearance to P015 (minimum 900 mm).",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P011",
+          "strategy": "increase_rear_clearance"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "min_rear_clearance_mm": 900
+      },
+      "rule_id": "RB-GEO-004",
+      "violation_id": "V065"
+    },
+    {
+      "affected_placement_ids": [
+        "P013",
+        "P009"
+      ],
+      "measured": {
+        "rear_clearance_mm": 400.0
+      },
+      "message": "Occupied desk P013 has only 400.0 mm rear clearance to P009 (minimum 900 mm).",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P013",
+          "strategy": "increase_rear_clearance"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "min_rear_clearance_mm": 900
+      },
+      "rule_id": "RB-GEO-004",
+      "violation_id": "V066"
+    },
+    {
+      "affected_placement_ids": [
+        "P015",
+        "P011"
+      ],
+      "measured": {
+        "rear_clearance_mm": 400.0
+      },
+      "message": "Occupied desk P015 has only 400.0 mm rear clearance to P011 (minimum 900 mm).",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P015",
+          "strategy": "increase_rear_clearance"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "min_rear_clearance_mm": 900
+      },
+      "rule_id": "RB-GEO-004",
+      "violation_id": "V067"
+    },
+    {
+      "affected_placement_ids": [
+        "P017",
+        "P021"
+      ],
+      "measured": {
+        "rear_clearance_mm": 400.0
+      },
+      "message": "Occupied desk P017 has only 400.0 mm rear clearance to P021 (minimum 900 mm).",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P017",
+          "strategy": "increase_rear_clearance"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "min_rear_clearance_mm": 900
+      },
+      "rule_id": "RB-GEO-004",
+      "violation_id": "V068"
+    },
+    {
+      "affected_placement_ids": [
+        "P019",
+        "P023"
+      ],
+      "measured": {
+        "rear_clearance_mm": 400.0
+      },
+      "message": "Occupied desk P019 has only 400.0 mm rear clearance to P023 (minimum 900 mm).",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P019",
+          "strategy": "increase_rear_clearance"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "min_rear_clearance_mm": 900
+      },
+      "rule_id": "RB-GEO-004",
+      "violation_id": "V069"
+    },
+    {
+      "affected_placement_ids": [
+        "P021",
+        "P017"
+      ],
+      "measured": {
+        "rear_clearance_mm": 400.0
+      },
+      "message": "Occupied desk P021 has only 400.0 mm rear clearance to P017 (minimum 900 mm).",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P021",
+          "strategy": "increase_rear_clearance"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "min_rear_clearance_mm": 900
+      },
+      "rule_id": "RB-GEO-004",
+      "violation_id": "V070"
+    },
+    {
+      "affected_placement_ids": [
+        "P023",
+        "P019"
+      ],
+      "measured": {
+        "rear_clearance_mm": 400.0
+      },
+      "message": "Occupied desk P023 has only 400.0 mm rear clearance to P019 (minimum 900 mm).",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P023",
+          "strategy": "increase_rear_clearance"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "min_rear_clearance_mm": 900
+      },
+      "rule_id": "RB-GEO-004",
+      "violation_id": "V071"
+    },
+    {
+      "affected_placement_ids": [
+        "P004",
+        "P024"
+      ],
+      "measured": {
+        "pullout_clearance_mm": 80.0
+      },
+      "message": "Task chair P004 pull-out zone obstructed by P024 (80.0 mm < 750 mm).",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P004",
+          "strategy": "increase_pullout_clearance"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "min_pullout_zone_mm": 750
+      },
+      "rule_id": "RB-GEO-008",
+      "violation_id": "V072"
+    },
+    {
+      "affected_placement_ids": [
+        "P024",
+        "P004"
+      ],
+      "measured": {
+        "pullout_clearance_mm": 80.0
+      },
+      "message": "Task chair P024 pull-out zone obstructed by P004 (80.0 mm < 750 mm).",
+      "repair_options": [
+        {
+          "action": "translate",
+          "placement_id": "P024",
+          "strategy": "increase_pullout_clearance"
+        },
+        {
+          "action": "escalate_tradeoff",
+          "recommendation": "Reduce target capacity from 18 to 12 to preserve the egress diagonal corridor.",
+          "strategy": "capacity_reduction"
+        }
+      ],
+      "required": {
+        "min_pullout_zone_mm": 750
+      },
+      "rule_id": "RB-GEO-008",
+      "violation_id": "V073"
     }
   ]
 }

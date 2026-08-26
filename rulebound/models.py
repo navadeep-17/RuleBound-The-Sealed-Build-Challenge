@@ -143,6 +143,19 @@ class Placement:
 
 
 @dataclass
+class ProposedLayout:
+    """Strongly-typed forward contract crossing the seam: Generative Layer -> Deterministic Arbiter."""
+    room_id: str
+    placements: list[Placement]
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "room_id": self.room_id,
+            "placements": [p.to_dict() for p in self.placements],
+        }
+
+
+@dataclass
 class Violation:
     violation_id: str
     rule_id: str

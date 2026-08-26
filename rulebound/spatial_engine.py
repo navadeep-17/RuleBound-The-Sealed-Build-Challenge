@@ -127,7 +127,7 @@ def validate_spatial_rules(
         if not poly:
             continue
         d_wall = min_distance_to_boundary(poly, room.boundary_mm)
-        if d_wall < 100.0:
+        if d_wall < 100.0 - 1e-3:
             shortfall = 100.0 - d_wall
             total_energy += shortfall * 10.0
             violations.append(
@@ -279,6 +279,96 @@ def validate_spatial_rules(
                         required={"min_walkway_mm": 900},
                         repair_options=[
                             {"action": "widen_aisle", "placement_ids": [p1.placement_id, p2.placement_id]},
+                        ],
+                    )
+                )
+                v_idx += 1
+
+    # 7. RB-GEO-004: family_rear_clearance (desk: 900 mm rear clearance)
+    for i in range(n):
+        p1 = placements[i]
+        item1 = items.get(p1.placement_id)
+        poly1 = footprints.get(p1.placement_id)
+        if not item1 or not poly1 or item1.family != "desk":
+            continue
+        for j in range(n):
+            if i == j:
+                continue
+            p2 = placements[j]
+            item2 = items.get(p2.placement_id)
+            poly2 = footprints.get(p2.placement_id)
+            if not item2 or not poly2:
+                continue
+            if item2.family == "chair" or (item2.family == "desk" and polygon_to_polygon_distance(poly1, poly2) <= 50.0):
+                continue
+            # Check if p2 is directly behind p1 in the lateral corridor
+            dx = abs(p1.x_mm - p2.x_mm)
+            dy = abs(p1.y_mm - p2.y_mm)
+            # Check lateral overlap between the two items
+            lateral_overlap = not (p2.x_mm + item2.width_mm / 2.0 <= p1.x_mm - item1.width_mm / 2.0 or
+                                   p2.x_mm - item2.width_mm / 2.0 >= p1.x_mm + item1.width_mm / 2.0)
+            if lateral_overlap and dy > 50.0:
+                d_clear = polygon_to_polygon_distance(poly1, poly2)
+                if 50.0 < d_clear < 900.0 and item2.family in ("storage", "desk"):
+                    shortfall = 900.0 - d_clear
+                    total_energy += shortfall * 8.0
+                    violations.append(
+                        Violation(
+                            violation_id=f"V{v_idx:03d}",
+                            rule_id="RB-GEO-004",
+                            message=f"Occupied desk {p1.placement_id} has only {d_clear:.1f} mm rear clearance to {p2.placement_id} (minimum 900 mm).",
+                            affected_placement_ids=[p1.placement_id, p2.placement_id],
+                            measured={"rear_clearance_mm": round(d_clear, 1)},
+                            required={"min_rear_clearance_mm": 900},
+                            repair_options=[
+                                {"action": "translate", "placement_id": p1.placement_id, "strategy": "increase_rear_clearance"},
+                            ],
+                        )
+                    )
+                    v_idx += 1
+
+    # 8. RB-GEO-008: family_rear_clearance (chair: 750 mm pull-out zone)
+    for i in range(n):
+        p1 = placements[i]
+        item1 = items.get(p1.placement_id)
+        poly1 = footprints.get(p1.placement_id)
+        if not item1 or not poly1 or item1.family != "chair":
+            continue
+        for j in range(n):
+            if i == j:
+                continue
+            p2 = placements[j]
+            item2 = items.get(p2.placement_id)
+            poly2 = footprints.get(p2.placement_id)
+            if not item2 or not poly2:
+                continue
+            # Desk or collaboration table in front of chair is its designated work surface
+            if item2.family in ("desk", "collaboration"):
+                continue
+            dx = abs(p1.x_mm - p2.x_mm)
+            dy = abs(p1.y_mm - p2.y_mm)
+            # Side-by-side chairs in same row (dy <= 100) are paired seating
+            if dy <= 100.0 and item2.family == "chair":
+                continue
+            # Check lateral overlap
+            lateral_overlap = not (p2.x_mm + item2.width_mm / 2.0 <= p1.x_mm - item1.width_mm / 2.0 or
+                                   p2.x_mm - item2.width_mm / 2.0 >= p1.x_mm + item1.width_mm / 2.0)
+            if not lateral_overlap:
+                continue
+            d_chair = polygon_to_polygon_distance(poly1, poly2)
+            if 50.0 < d_chair < 750.0 and item2.family in ("chair", "storage", "desk"):
+                shortfall = 750.0 - d_chair
+                total_energy += shortfall * 8.0
+                violations.append(
+                    Violation(
+                        violation_id=f"V{v_idx:03d}",
+                        rule_id="RB-GEO-008",
+                        message=f"Task chair {p1.placement_id} pull-out zone obstructed by {p2.placement_id} ({d_chair:.1f} mm < 750 mm).",
+                        affected_placement_ids=[p1.placement_id, p2.placement_id],
+                        measured={"pullout_clearance_mm": round(d_chair, 1)},
+                        required={"min_pullout_zone_mm": 750},
+                        repair_options=[
+                            {"action": "translate", "placement_id": p1.placement_id, "strategy": "increase_pullout_clearance"},
                         ],
                     )
                 )

@@ -57,6 +57,29 @@ def process_rooms(input_dir: str | Path, output_dir: str | Path, export_dxf: boo
     return 0
 
 
+def process_dxf_input(dxf_path: str | Path, output_dir: str | Path, data_dir: str = "data") -> int:
+    """Bonus Track: Ingest a 2D CAD DXF floorplan file and generate layout and quote."""
+    from rulebound.dxf_ingester import ingest_room_from_dxf
+    pack = load_asset_pack(data_dir)
+    room = ingest_room_from_dxf(dxf_path)
+    out_root = Path(output_dir) / room.room_id
+
+    layout = generate_layout_for_room(room, pack)
+    if layout.status == "valid":
+        line_specs = aggregate_placements_to_lines(layout.placements)
+        quote = price_room_layout(room.room_id, line_specs, pack)
+    else:
+        quote = price_room_layout(room.room_id, [], pack)
+        quote.blocking_reasons.extend([v.message for v in layout.violations])
+
+    write_deterministic_json(out_root / "layout.json", layout.to_dict())
+    write_deterministic_json(out_root / "quote.json", quote.to_dict())
+    export_layout_to_dxf(room, layout, pack.catalog_by_sku, out_root / "plan.dxf")
+    export_room_svg(room, layout, pack.catalog_by_sku, str(out_root / "plan.svg"))
+    print(f"DXF Ingest Complete: Room {room.room_id} parsed -> Output written to {out_root}")
+    return 0
+
+
 def explain_price_trace(quote_path: Path | str, line_id: str | None = None) -> int:
     """Bonus Track: Explain any price line or quote summary by retrieving its trace."""
     path = Path(quote_path)
@@ -146,7 +169,13 @@ def main() -> None:
     parser.add_argument("--explain", help="Retrieve and explain price trace for a quote file or room ID")
     parser.add_argument("--line", help="Line ID to explain (optional, used with --explain)")
     parser.add_argument("--check", action="store_true", help="Run comprehensive verification test suite")
+    parser.add_argument("--ingest-dxf", help="Bonus Track: Ingest a 2D CAD DXF floorplan file and generate layout and quote")
     args = parser.parse_args()
+
+    if args.ingest_dxf:
+        out_dir = args.output or "OUTPUT"
+        in_dir = args.input or "data"
+        sys.exit(process_dxf_input(args.ingest_dxf, out_dir, in_dir))
 
     if args.explain:
         sys.exit(explain_price_trace(args.explain, args.line))
