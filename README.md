@@ -1,84 +1,97 @@
-# RuleBound Round 1 Release Pack
+# RuleBound — Final Submission (Round 3)
 
-This archive is the official candidate pack for **RuleBound: The Sealed Build Challenge**. Every record is synthetic and belongs to the fictional manufacturer **Northwind Furnishings**. It contains no real client, employee or customer data.
-
-## Start here
-
-1. Read `PROBLEM.md`.
-2. Read `RUNNER_CONTRACT.md` and `PRICING_SPEC.md`.
-3. Inspect `data/`, `schemas/`, and `worked_examples/`.
-4. Choose either `starter/python/` or `starter/typescript/`.
-5. Run `python3 tools/verify_pack.py` from the archive root.
-6. Implement the required one-command runner and create `OUTPUT/<room_id>/layout.json` and `quote.json`.
-7. Run `python3 tools/validate_output.py OUTPUT`.
-8. Run `python3 tools/check_determinism.py --command '<your command>' --input data --work-dir .determinism-check`.
-
-## Released contents
-
-- 120 catalog SKUs across five families
-- 18 finishes with basis-point uplifts and family compatibility
-- 14 spatial and pricing rules in YAML plus an exact JSON mirror
-- Five room specifications and five matching plain-English briefs
-- Six synthetic historical jobs
-- Two arithmetically reconciled worked reference quotes
-- Seven JSON Schemas
-- Python and TypeScript typed loaders and runner stubs
-- Output validator, pack verifier and determinism checker
-
-## Important boundaries
-
-- `data/rules.json` and `data/rules.yaml` contain identical rules; JSON is provided to keep both starter loaders dependency-free.
-- Integer INR and basis points are used everywhere. Round half-up only where a fractional rupee is unavoidable.
-- The held-back judging set and Round 3 curveball pack are intentionally **not included**.
-- Questions about an ambiguity or pack defect must go to the common participant channel so every candidate receives the same clarification.
+**Northwind Furnishings Commercial Fit-Out & Deterministic Pricing Engine**  
+*LV8 Tech Sealed Build Challenge — Final Submission (Round 3)*  
+**Author**: Navadeep ([navadeepthota17@gmail.com](mailto:navadeepthota17@gmail.com))  
+**Repository**: [https://github.com/navadeep-17/RuleBound-The-Sealed-Build-Challenge](https://github.com/navadeep-17/RuleBound-The-Sealed-Build-Challenge)
 
 ---
 
-## Solution Execution & Determinism Statement
+## 🎥 Demonstration Video
+
+> 📺 **Watch the 5-Minute Technical Demonstration Video**:  
+> **[Google Drive Video Link](https://drive.google.com/file/d/1sQc1XkfnCOp7_p-EhqP3ZcSq-8P5Df82/view?usp=sharing)**  
+> *(Covers boundary seam architecture, vector relaxation descent, Question 4 escalation on ROOM-03, deterministic pricing math, CAD DXF floorplans, and Azure/Entra ID bonus tracks)*
+
+---
+
+## 📋 Executive Summary & Architectural Deliverables
+
+| Deliverable | Location | Description |
+| :--- | :--- | :--- |
+| **Runnable Solution** | [`run.py`](run.py), [`rulebound/`](rulebound/) | Python 3.10+ zero-dependency fit-out & pricing engine. |
+| **Revised Architecture** | [`ARCHITECTURE.md`](ARCHITECTURE.md) | Boundary contracts, vector relaxation, $K_{\max}=6$ termination proof, and pricing math. |
+| **Iterative Changelog** | [`CHANGELOG.md`](CHANGELOG.md) | Comprehensive engineering changelog from Round 1 baseline through Round 3 final. |
+| **Committed Outputs** | [`OUTPUT/`](OUTPUT/) | Pre-generated, schema-validated, byte-deterministic outputs for all 5 released rooms. |
+| **CAD Floorplans & DXF Ingest** | [`rulebound/dxf_ingester.py`](rulebound/dxf_ingester.py) | 1:1 scale DXF export, interactive SVG floorplans, and ASCII DXF ingestion via `--ingest-dxf`. |
+| **Azure + Entra ID Deployment** | [`azure/`](azure/) | Production Dockerfile, Bicep infrastructure template, FastAPI service, and Entra ID JWT verification. |
+| **Test & Verification Suite** | [`tests/`](tests/), [`tools/`](tools/) | 17 unit tests verifying all 14 rules, schema validator, pack verifier, and determinism checker. |
+
+---
+
+## 🚀 Quickstart & One-Command Execution
 
 ### Prerequisites
-- Python 3.10+ (Standard Library only, **zero external dependencies** required)
+- **Python 3.10+** (Standard Library only — **zero external dependencies required**)
 
-### Run Command
-To generate layouts, quotes, and DXF floorplans for any input directory:
+### 1. Master Output Generation
+Run the master engine across all rooms in the dataset:
 ```bash
 python run.py --input data --output OUTPUT
 ```
-*(Alternatively, via starter stub: `python starter/python/runner.py --input data --output OUTPUT`)*
 
-### Output Validation
-To validate output schemas and business contracts against the official validator:
+### 2. Comprehensive Test Suite (All 14 Rules Verified)
+Run the 17-test verification suite:
+```bash
+python run.py --check
+```
+
+### 3. Official JSON Schema Validation
+Validate all generated `layout.json` and `quote.json` files against the schemas:
 ```bash
 python tools/validate_output.py OUTPUT
 ```
 
-### Determinism Verification
-To verify 100% byte-identical outputs across repeated runs:
+### 4. Byte-for-Byte Multi-Run Determinism Verification
+Verify 100% byte-identical outputs across repeated execution:
 ```bash
 python tools/check_determinism.py --command "python run.py --input {input} --output {output}" --input data --work-dir .determinism-check
 ```
 
-### Run Automated Tests
+### 5. Interactive Technical Demonstration CLI
+Run the automated step-by-step terminal showcase:
 ```bash
-python -m unittest discover -s tests -p "test_*.py"
+python tools/demo.py
 ```
 
-### Optional Bonus Features
+---
 
-#### 1. Explain Any Price Line by Retrieving Its Trace
-Retrieve full arithmetic citations and rule breakdowns directly from the CLI:
+## 💎 Bonus Tracks & Enterprise Features
+
+### Bonus Track 1: Native CAD DXF Ingest & Export
+- **Export**: Automatically generates 1:1 scale AutoCAD R12/2000 compatible `plan.dxf` and browser-viewable `plan.svg` for every room.
+- **Ingest**: Import external 2D DXF floorplans directly to generate compliant layouts and pricing:
+  ```bash
+  python run.py --ingest-dxf OUTPUT/ROOM-01/plan.dxf --output OUTPUT
+  ```
+
+### Bonus Track 2: Azure Container Apps & Microsoft Entra ID Authentication
+- Located in the [`azure/`](azure/) directory:
+  - **`azure/main.bicep`**: Declarative Azure Container Apps infrastructure with Managed Identity.
+  - **`azure/entra_auth.py`**: OAuth2 Bearer token verification against Microsoft Entra ID OpenID Connect metadata.
+  - **`azure/app.py`**: Authenticated API service with `/health` and `/api/v1/quote/{room_id}` endpoints.
+  - **`azure/Dockerfile`**: Production container configuration.
+  - **`azure/README.md`**: Step-by-step Azure CLI deployment & authentication guide.
+
+### Bonus Track 3: Price Trace & Violation Explainability CLI
+Inspect line-level arithmetic traces and escalation blocking reasons from the terminal:
 ```bash
-# Explain an individual line item's calculations and rules
+# Explain arithmetic breakdown for an individual line item
 python run.py --explain ROOM-01 --line L001
 
-# Explain complete quote and financial breakdown for a room
+# Explain complete quote and financial summary for a room
 python run.py --explain ROOM-01
 
-# Inspect a blocked quote's explicit constraint violation reasons
+# Explain reasons and trade-offs for an unsatisfiable layout
 python run.py --explain ROOM-03
 ```
-
-#### 2. Vector CAD Floorplans (DXF & Browser SVG)
-For every room, the runner generates both:
-- `plan.dxf`: Industry-standard AutoCAD Release 12 / 2000 ASCII DXF file.
-- `plan.svg`: Interactive scaled vector floorplan viewable directly in any web browser (Chrome, Edge, Safari) showing room boundary, egress corridor, doors with swing arcs, windows, and categorized furniture items.
