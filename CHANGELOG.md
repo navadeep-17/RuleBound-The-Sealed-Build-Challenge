@@ -23,6 +23,16 @@ All notable changes and architectural advancements across Round 1, Round 2, and 
   - Embedded demonstration video link directly in `README.md`.
   - Added comprehensive unit test suite (`tests/test_all_rules.py`) covering all 14 rules, DXF parsing, and Entra ID authentication.
 
+### 🚀 Standout Enterprise Innovations
+- **Interactive ANSI Terminal Visualizer (`rulebound/terminal_view.py`)**:
+  - Added CLI flag `--visualize [room_id]` rendering scaled 2D ASCII/ANSI floorplans with color-coded walls, door swings, egress paths, furniture blocks, and highlighted violation zones directly in the terminal.
+- **Publication-Grade Commercial Proposals & BOM (`rulebound/report_generator.py`)**:
+  - Integrated executive client fit-out proposal generator exporting `OUTPUT/<room_id>/report.html` with embedded vector CAD floorplan, line-item Bill of Materials (BOM), audit traces, and statutory safety compliance certification.
+- **Deterministic Natural Language Brief Semantic Parser (`rulebound/nlp_matcher.py`)**:
+  - Implemented offline, deterministic semantic extractor translating plain-English client briefs into structured spatial intents (capacity, typology, finish palettes, collaboration amenities).
+- **Capacity vs Safety Pareto Frontier Analyzer (`tools/pareto_frontier.py`)**:
+  - Engineered automated sensitivity solver mapping density boundaries and trade-off curves for challenging architectural layouts.
+
 ---
 
 ## [1.2.0] - 2026-08-26 (Round 2 — Vector Arbitration & Escalation Hardening)

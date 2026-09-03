@@ -260,15 +260,20 @@ def _is_placement_clear(
     return True
 
 
-def generate_generic_layout(room: RoomSpec, pack: AssetPack) -> list[Placement]:
+def generate_generic_layout(room: RoomSpec, pack: AssetPack, brief_text: str | None = None) -> list[Placement]:
     """Autonomous Constraint-Aware Spatial Zoning Generator for unseen held-back judging rooms.
-    Discovers safe spatial regions and places desks, matching task chairs, and storage units."""
+    Parses client brief semantic intent, discovers safe spatial regions, and places desks,
+    matching task chairs, and storage units."""
+    from rulebound.nlp_matcher import parse_brief_text
+
+    intent = parse_brief_text(brief_text) if brief_text else None
+
     min_x = min(pt[0] for pt in room.boundary_mm)
     max_x = max(pt[0] for pt in room.boundary_mm)
     min_y = min(pt[1] for pt in room.boundary_mm)
     max_y = max(pt[1] for pt in room.boundary_mm)
 
-    desks_needed = room.capacity
+    desks_needed = (intent.target_capacity if intent and intent.target_capacity else room.capacity)
     sku_desk = "NW-DES-001"
     sku_chair = "NW-CHA-001"
     desk_item = pack.catalog_by_sku.get(sku_desk, next((i for i in pack.catalog if i.family == "desk"), None))
@@ -277,8 +282,8 @@ def generate_generic_layout(room: RoomSpec, pack: AssetPack) -> list[Placement]:
     if not desk_item or not chair_item:
         return []
 
-    finish_desk = "F01"
-    finish_chair = "F02"
+    finish_desk = (intent.preferred_finishes[0] if intent and intent.preferred_finishes else "F01")
+    finish_chair = (intent.preferred_finishes[1] if intent and len(intent.preferred_finishes) > 1 else "F02")
 
     placements: list[Placement] = []
     pid = 1
@@ -328,7 +333,8 @@ def generate_layout_for_room(room: RoomSpec, pack: AssetPack) -> Layout:
     if gen_fn:
         candidates = gen_fn()
     else:
-        candidates = generate_generic_layout(room, pack)
+        brief_text = pack.briefs.get(room.room_id)
+        candidates = generate_generic_layout(room, pack, brief_text=brief_text)
 
     arb_result = arbitrate_layout(room, candidates, pack.catalog_by_sku)
     return arb_result.layout

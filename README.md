@@ -95,3 +95,34 @@ python run.py --explain ROOM-01
 # Explain reasons and trade-offs for an unsatisfiable layout
 python run.py --explain ROOM-03
 ```
+
+---
+
+## 🌟 Standout Enterprise Innovations (Round 3 Final)
+
+### 1. Interactive ANSI Terminal Floorplan Visualizer (`--visualize`)
+Render scaled, color-coded 2D floorplans and collision heatmaps directly in the terminal:
+```bash
+# View valid layout for ROOM-01
+python run.py --visualize ROOM-01
+
+# View highlighted constraint violations for unsatisfiable ROOM-03
+python run.py --visualize ROOM-03
+```
+
+### 2. Publication-Grade Commercial Proposals & BOM (`report.html`)
+For every room, the runner exports an official, print-ready executive fit-out proposal at `OUTPUT/<room_id>/report.html` featuring:
+- Official Northwind Furnishings corporate letterhead and project metadata.
+- Embedded 1:1 scale vector CAD floorplan drawing.
+- Itemized Bill of Materials (BOM) with unit rates, finish uplifts, and quantity breaks.
+- Statutory regulatory safety certification (zero SAT overlaps, 1100mm egress clearance).
+
+### 3. Capacity vs Safety Pareto Frontier Analyzer
+Evaluate density boundaries and trade-offs for challenging architectural layouts:
+```bash
+python tools/pareto_frontier.py ROOM-03
+```
+
+### 4. Deterministic Natural Language Brief Semantic Parser (`rulebound/nlp_matcher.py`)
+Automatically translates plain-English client briefs into structured spatial intents (capacity, typology, finish palettes, collaboration amenities) without probabilistic external API calls.
+

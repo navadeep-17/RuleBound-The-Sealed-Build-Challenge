@@ -52,7 +52,14 @@ def process_rooms(input_dir: str | Path, output_dir: str | Path, export_dxf: boo
             export_layout_to_dxf(room, layout, pack.catalog_by_sku, room_out / "plan.dxf")
 
         # 5. Bonus Track: Scaled SVG Floorplan (viewable in browser)
-        export_room_svg(room, layout, pack.catalog_by_sku, str(room_out / "plan.svg"))
+        svg_path = room_out / "plan.svg"
+        export_room_svg(room, layout, pack.catalog_by_sku, str(svg_path))
+
+        # 6. Standout Feature: Executive Commercial Fit-Out Proposal & BOM Report
+        from rulebound.report_generator import generate_html_proposal
+        svg_content = svg_path.read_text(encoding="utf-8") if svg_path.exists() else None
+        html_report = generate_html_proposal(room, layout, quote, pack, svg_content)
+        (room_out / "report.html").write_text(html_report, encoding="utf-8")
 
     return 0
 
@@ -74,8 +81,11 @@ def process_dxf_input(dxf_path: str | Path, output_dir: str | Path, data_dir: st
 
     write_deterministic_json(out_root / "layout.json", layout.to_dict())
     write_deterministic_json(out_root / "quote.json", quote.to_dict())
-    export_layout_to_dxf(room, layout, pack.catalog_by_sku, out_root / "plan.dxf")
-    export_room_svg(room, layout, pack.catalog_by_sku, str(out_root / "plan.svg"))
+    svg_path = out_root / "plan.svg"
+    export_room_svg(room, layout, pack.catalog_by_sku, str(svg_path))
+    from rulebound.report_generator import generate_html_proposal
+    svg_content = svg_path.read_text(encoding="utf-8") if svg_path.exists() else None
+    (out_root / "report.html").write_text(generate_html_proposal(room, layout, quote, pack, svg_content), encoding="utf-8")
     print(f"DXF Ingest Complete: Room {room.room_id} parsed -> Output written to {out_root}")
     return 0
 
@@ -169,6 +179,7 @@ def main() -> None:
     parser.add_argument("--explain", help="Retrieve and explain price trace for a quote file or room ID")
     parser.add_argument("--line", help="Line ID to explain (optional, used with --explain)")
     parser.add_argument("--check", action="store_true", help="Run comprehensive verification test suite")
+    parser.add_argument("--visualize", help="Render ANSI 2D top-down floorplan directly in the terminal for a room ID")
     parser.add_argument("--ingest-dxf", help="Bonus Track: Ingest a 2D CAD DXF floorplan file and generate layout and quote")
     args = parser.parse_args()
 
@@ -179,6 +190,31 @@ def main() -> None:
 
     if args.explain:
         sys.exit(explain_price_trace(args.explain, args.line))
+
+    if args.visualize:
+        from rulebound.loader import load_asset_pack
+        from rulebound.terminal_view import render_terminal_floorplan
+        pack = load_asset_pack(args.input or "data")
+        room_id = args.visualize
+        if room_id not in pack.rooms_by_id:
+            print(f"Error: Room {room_id} not found in {args.input or 'data'}")
+            sys.exit(1)
+        room = pack.rooms_by_id[room_id]
+        out_layout_path = Path(args.output or "OUTPUT") / room_id / "layout.json"
+        if out_layout_path.exists():
+            import json
+            from rulebound.models import Placement, Violation
+            data = json.loads(out_layout_path.read_text(encoding="utf-8"))
+            placements = [Placement(**p) for p in data["placements"]]
+            violations = [Violation(**v) for v in data["violations"]]
+        else:
+            from rulebound.generator import generate_layout_for_room
+            layout = generate_layout_for_room(room, pack)
+            placements = layout.placements
+            violations = layout.violations
+
+        print(render_terminal_floorplan(room, placements, pack.catalog_by_sku, violations))
+        sys.exit(0)
 
     if args.check:
         import unittest
