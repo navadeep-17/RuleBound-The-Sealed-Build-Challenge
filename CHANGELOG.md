@@ -18,7 +18,6 @@ All notable changes and architectural advancements across Round 1, Round 2, and 
   - Provided containerization configuration (`azure/Dockerfile`) and deployment documentation (`azure/README.md`).
 - **Interactive Technical Demonstration (`tools/demo.py`)**:
   - Built interactive terminal harness showcasing seam boundary contracts, energy descent, Question 4 escalation, pricing math, and bonus tracks.
-  - Added timed spoken demonstration script (`DEMO_VIDEO_SCRIPT.md`).
 - **Documentation & Verification**:
   - Embedded demonstration video link directly in `README.md`.
   - Added comprehensive unit test suite (`tests/test_all_rules.py`) covering all 14 rules, DXF parsing, and Entra ID authentication.
