@@ -149,10 +149,32 @@ def arbitrate_layout(
                 p.x_mm = orig_x
                 p.y_mm = orig_y
 
+        best_new_rot = None
+
         if best_p_idx >= 0 and best_nudge_energy < current_energy - eps:
             # Accept continuous relaxation step (strictly decreasing energy E)
             placements[best_p_idx].x_mm = best_new_x
             placements[best_p_idx].y_mm = best_new_y
+            current_violations, current_energy = validate_spatial_rules(room, placements, catalog_by_sku)
+            continue
+
+        # Phase A2: Orthogonal Rotation Relaxation (0, 90, 180, 270 degrees)
+        for idx, p in enumerate(placements):
+            if p.placement_id not in candidate_ids:
+                continue
+
+            orig_rot = p.rotation_deg
+            for rot_delta in (90, 180, 270):
+                p.rotation_deg = (orig_rot + rot_delta) % 360
+                _, e_test = validate_spatial_rules(room, placements, catalog_by_sku)
+                if e_test < best_nudge_energy - eps:
+                    best_nudge_energy = e_test
+                    best_p_idx = idx
+                    best_new_rot = p.rotation_deg
+                p.rotation_deg = orig_rot
+
+        if best_p_idx >= 0 and best_new_rot is not None and best_nudge_energy < current_energy - eps:
+            placements[best_p_idx].rotation_deg = best_new_rot
             current_violations, current_energy = validate_spatial_rules(room, placements, catalog_by_sku)
             continue
 

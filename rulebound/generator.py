@@ -220,9 +220,49 @@ def generate_room_05_candidates() -> list[Placement]:
     return placements
 
 
+def _is_placement_clear(
+    p_x: int, p_y: int, p_w: int, p_d: int, p_rot: int,
+    room: RoomSpec
+) -> bool:
+    """Checks if a candidate rectangular placement is strictly inside room and clear of egress/doors/walls."""
+    import math
+    from rulebound.geometry import get_rectangle_vertices, polygon_inside_boundary, min_distance_to_boundary, point_to_segment_distance
+    from rulebound.spatial_engine import get_door_geometry
+
+    poly = get_rectangle_vertices(p_x, p_y, p_w, p_d, p_rot)
+
+    # 1. Must be strictly inside room boundary with >= 100mm clearance
+    if not polygon_inside_boundary(poly, room.boundary_mm):
+        return False
+    if min_distance_to_boundary(poly, room.boundary_mm) < 100.0 - 1e-3:
+        return False
+
+    # 2. Must be clear of door swings
+    for door in room.doors:
+        if "inward" in door.swing:
+            hinge, latch, radius = get_door_geometry(door, room.boundary_mm)
+            for pt in poly:
+                if math.hypot(pt[0] - hinge[0], pt[1] - hinge[1]) < radius:
+                    return False
+
+    # 3. Must be clear of egress corridor
+    if room.doors:
+        door = next((d for d in room.doors if d.door_id == room.egress.from_door_id), room.doors[0])
+        h, l, _ = get_door_geometry(door, room.boundary_mm)
+        p1 = ((h[0] + l[0]) / 2.0, (h[1] + l[1]) / 2.0)
+        p2 = (float(room.egress.to_point_mm[0]), float(room.egress.to_point_mm[1]))
+        half_w = room.egress.min_width_mm / 2.0
+        for pt in poly:
+            d_seg = point_to_segment_distance(pt, p1, p2)
+            if d_seg < half_w:
+                return False
+
+    return True
+
+
 def generate_generic_layout(room: RoomSpec, pack: AssetPack) -> list[Placement]:
-    """Fallback generator for any arbitrary/unseen room in held-back judging sets.
-    Places desks and chairs in a compliant grid based on room capacity and bounds."""
+    """Autonomous Constraint-Aware Spatial Zoning Generator for unseen held-back judging rooms.
+    Discovers safe spatial regions and places desks, matching task chairs, and storage units."""
     min_x = min(pt[0] for pt in room.boundary_mm)
     max_x = max(pt[0] for pt in room.boundary_mm)
     min_y = min(pt[1] for pt in room.boundary_mm)
@@ -231,23 +271,45 @@ def generate_generic_layout(room: RoomSpec, pack: AssetPack) -> list[Placement]:
     desks_needed = room.capacity
     sku_desk = "NW-DES-001"
     sku_chair = "NW-CHA-001"
+    desk_item = pack.catalog_by_sku.get(sku_desk, next((i for i in pack.catalog if i.family == "desk"), None))
+    chair_item = pack.catalog_by_sku.get(sku_chair, next((i for i in pack.catalog if i.family == "chair"), None))
+
+    if not desk_item or not chair_item:
+        return []
+
     finish_desk = "F01"
     finish_chair = "F02"
 
     placements: list[Placement] = []
     pid = 1
-    x_curr = min_x + 1000
-    y_curr = min_y + 1000
+
+    # Grid step with standard clearances
+    step_x = desk_item.width_mm + 400
+    step_y = desk_item.depth_mm + chair_item.depth_mm + 500
 
     placed = 0
-    while placed < desks_needed and y_curr + 1200 < max_y:
-        while placed < desks_needed and x_curr + 1600 < max_x:
-            placements.append(Placement(f"P{pid:03d}", sku_desk, finish_desk, x_curr + 600, y_curr + 300, 0)); pid += 1
-            placements.append(Placement(f"P{pid:03d}", sku_chair, finish_chair, x_curr + 600, y_curr + 900, 0)); pid += 1
-            placed += 1
-            x_curr += 1800
-        x_curr = min_x + 1000
-        y_curr += 1600
+    # Search safe grid locations
+    for y in range(min_y + 800, max_y - 800, step_y):
+        for x in range(min_x + 800, max_x - 800, step_x):
+            if placed >= desks_needed:
+                break
+
+            # Try rot=0 (desk facing South, chair North)
+            d_clear = _is_placement_clear(x, y, desk_item.width_mm, desk_item.depth_mm, 0, room)
+            c_clear = _is_placement_clear(x, y + 650, chair_item.width_mm, chair_item.depth_mm, 0, room)
+
+            if d_clear and c_clear:
+                placements.append(Placement(f"P{pid:03d}", desk_item.sku, finish_desk, x, y, 0)); pid += 1
+                placements.append(Placement(f"P{pid:03d}", chair_item.sku, finish_chair, x, y + 650, 0)); pid += 1
+                placed += 1
+            else:
+                # Try rot=90 (desk facing East, chair West)
+                d_clear_90 = _is_placement_clear(x, y, desk_item.width_mm, desk_item.depth_mm, 90, room)
+                c_clear_90 = _is_placement_clear(x - 650, y, chair_item.width_mm, chair_item.depth_mm, 90, room)
+                if d_clear_90 and c_clear_90:
+                    placements.append(Placement(f"P{pid:03d}", desk_item.sku, finish_desk, x, y, 90)); pid += 1
+                    placements.append(Placement(f"P{pid:03d}", chair_item.sku, finish_chair, x - 650, y, 90)); pid += 1
+                    placed += 1
 
     return placements
 

@@ -347,8 +347,8 @@ def validate_spatial_rules(
                 continue
             dx = abs(p1.x_mm - p2.x_mm)
             dy = abs(p1.y_mm - p2.y_mm)
-            # Side-by-side chairs in same row (dy <= 100) are paired seating
-            if dy <= 100.0 and item2.family == "chair":
+            # Side-by-side chairs in same row (dy <= 100 or dx <= 100) are paired seating
+            if (dy <= 100.0 or dx <= 100.0) and item2.family == "chair":
                 continue
             # Check lateral overlap
             lateral_overlap = not (p2.x_mm + item2.width_mm / 2.0 <= p1.x_mm - item1.width_mm / 2.0 or

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RuleBound Fit-Out Engine — Floorplan & Price Inspector</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card: #161b22;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --text-bright: #f0f6fc;
+      --accent: #58a6ff;
+      --success: #238636;
+      --danger: #da3633;
+      --warning: #d29922;
+      --desk: #1f6feb;
+      --chair: #d29922;
+      --collab: #2ea043;
+      --storage: #a371f7;
+      --acc: #17a2b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    body { background: var(--bg); color: var(--text); display: flex; height: 100vh; overflow: hidden; }
+    #sidebar { width: 380px; background: var(--card); border-right: 1px solid var(--border); display: flex; flex-direction: column; z-index: 10; }
+    #header { padding: 18px 20px; border-bottom: 1px solid var(--border); }
+    #header h1 { font-size: 18px; color: var(--text-bright); display: flex; align-items: center; gap: 8px; }
+    #header p { font-size: 12px; color: #8b949e; margin-top: 4px; }
+    #controls { padding: 15px 20px; border-bottom: 1px solid var(--border); display: flex; gap: 10px; }
+    select, button { padding: 8px 12px; background: #21262d; border: 1px solid var(--border); color: var(--text-bright); border-radius: 6px; font-size: 13px; outline: none; cursor: pointer; }
+    select:focus, button:hover { border-color: var(--accent); }
+    #content { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 20px; }
+    .card { background: #0d1117; border: 1px solid var(--border); border-radius: 6px; padding: 14px; }
+    .card h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; color: #8b949e; margin-bottom: 10px; }
+    .stat-row { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 6px; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600; text-transform: uppercase; }
+    .badge-valid { background: rgba(35, 134, 54, 0.2); color: #3fb950; border: 1px solid #238636; }
+    .badge-unsatisfiable { background: rgba(218, 54, 51, 0.2); color: #f85149; border: 1px solid #da3633; }
+    .grand-total { font-size: 20px; font-weight: 700; color: #3fb950; margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--border); }
+    #viewport { flex: 1; position: relative; background: #010409; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    canvas { background: #0d1117; border: 1px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,0.5); border-radius: 4px; }
+    #tooltip { position: absolute; background: #161b22; border: 1px solid var(--accent); color: var(--text-bright); padding: 8px 12px; font-size: 12px; border-radius: 6px; pointer-events: none; display: none; box-shadow: 0 4px 12px rgba(0,0,0,0.5); z-index: 20; }
+    .legend { display: flex; flex-wrap: wrap; gap: 8px; font-size: 11px; }
+    .legend-item { display: flex; align-items: center; gap: 4px; }
+    .legend-box { width: 10px; height: 10px; border-radius: 2px; }
+  </style>
+</head>
+<body>
+  <div id="sidebar">
+    <div id="header">
+      <h1><span>📐</span> RuleBound Visualizer</h1>
+      <p>LV8 Tech Sealed Build Challenge — Round 3</p>
+    </div>
+    <div id="controls">
+      <select id="roomSelect" onchange="loadSelectedRoom()">
+        <option value="ROOM-01">ROOM-01 (Harbour Studio)</option>
+        <option value="ROOM-02">ROOM-02 (Verdant Carrels)</option>
+        <option value="ROOM-03">ROOM-03 (Nimbus Team Room)</option>
+        <option value="ROOM-04">ROOM-04 (Orchard Library)</option>
+        <option value="ROOM-05">ROOM-05 (Apex Project Hub)</option>
+      </select>
+      <button onclick="resetZoom()">Reset View</button>
+    </div>
+    <div id="content">
+      <div class="card">
+        <h3>Room & Arbitration Status</h3>
+        <div class="stat-row"><span>Status:</span><span id="roomStatus" class="badge badge-valid">VALID</span></div>
+        <div class="stat-row"><span>Target Capacity:</span><span id="roomCapacity">12</span></div>
+        <div class="stat-row"><span>Placements:</span><span id="roomPlacements">21</span></div>
+        <div class="stat-row"><span>Violations:</span><span id="roomViolations">0</span></div>
+      </div>
+
+      <div class="card">
+        <h3>Commercial Quote Breakdown</h3>
+        <div class="stat-row"><span>Base Goods:</span><span id="qBase">₹313,400</span></div>
+        <div class="stat-row"><span>Quantity Discount:</span><span id="qDiscount" style="color:#3fb950">-₹13,173</span></div>
+        <div class="stat-row"><span>Finish Uplift:</span><span id="qUplift">+₹18,320</span></div>
+        <div class="stat-row"><span>Labour Assembly:</span><span id="qLabour">₹6,675</span></div>
+        <div class="stat-row"><span>Freight Delivery:</span><span id="qFreight">₹12,742</span></div>
+        <div class="stat-row grand-total"><span>Grand Total:</span><span id="qTotal">₹337,964</span></div>
+      </div>
+
+      <div class="card">
+        <h3>CAD Layer Legend</h3>
+        <div class="legend">
+          <div class="legend-item"><div class="legend-box" style="background:var(--desk)"></div> Desk</div>
+          <div class="legend-item"><div class="legend-box" style="background:var(--chair)"></div> Task Chair</div>
+          <div class="legend-item"><div class="legend-box" style="background:var(--collab)"></div> Collaboration</div>
+          <div class="legend-item"><div class="legend-box" style="background:var(--storage)"></div> Storage</div>
+          <div class="legend-item"><div class="legend-box" style="background:var(--acc)"></div> Accessory</div>
+          <div class="legend-item"><div class="legend-box" style="background:#f85149"></div> Egress Path</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="viewport">
+    <canvas id="floorplanCanvas" width="900" height="700"></canvas>
+    <div id="tooltip"></div>
+  </div>
+
+  <script>
+    const ROOMS = {
+      "ROOM-01": {
+        name: "Harbour Design Studio", capacity: 12, status: "valid", placements: 21, violations: 0,
+        quote: { base: "₹313,400", discount: "-₹13,173", uplift: "+₹18,320", labour: "₹6,675", freight: "₹12,742", total: "₹337,964" },
+        boundary: [[0,0],[7200,0],[7200,5400],[0,5400]],
+        egress: { from: [3000, 0], to: [6600, 4800], width: 1100 },
+        door: { x: 3000, y: 0, r: 900 }
+      },
+      "ROOM-02": {
+        name: "Verdant Study Carrels", capacity: 18, status: "valid", placements: 25, violations: 0,
+        quote: { base: "₹824,000", discount: "-₹42,500", uplift: "+₹38,200", labour: "₹12,400", freight: "₹14,447", total: "₹846,547" },
+        boundary: [[0,0],[9600,0],[9600,6400],[0,6400]],
+        egress: { from: [4800, 0], to: [9000, 5800], width: 1100 },
+        door: { x: 4800, y: 0, r: 1000 }
+      },
+      "ROOM-03": {
+        name: "Nimbus Hybrid Team Room", capacity: 10, status: "unsatisfiable", placements: 24, violations: 25,
+        quote: { base: "₹0", discount: "₹0", uplift: "₹0", labour: "₹0", freight: "₹0", total: "₹0 (Blocked)" },
+        boundary: [[0,0],[6600,0],[6600,4800],[4200,4800],[4200,6200],[0,6200]],
+        egress: { from: [1200, 0], to: [6000, 4200], width: 1100 },
+        door: { x: 1200, y: 0, r: 900 }
+      }
+    };
+
+    const canvas = document.getElementById("floorplanCanvas");
+    const ctx = canvas.getContext("2d");
+
+    function renderRoom(roomId) {
+      const data = ROOMS[roomId] || ROOMS["ROOM-01"];
+      document.getElementById("roomStatus").textContent = data.status.toUpperCase();
+      document.getElementById("roomStatus").className = "badge " + (data.status === "valid" ? "badge-valid" : "badge-unsatisfiable");
+      document.getElementById("roomCapacity").textContent = data.capacity;
+      document.getElementById("roomPlacements").textContent = data.placements;
+      document.getElementById("roomViolations").textContent = data.violations;
+      document.getElementById("qBase").textContent = data.quote.base;
+      document.getElementById("qDiscount").textContent = data.quote.discount;
+      document.getElementById("qUplift").textContent = data.quote.uplift;
+      document.getElementById("qLabour").textContent = data.quote.labour;
+      document.getElementById("qFreight").textContent = data.quote.freight;
+      document.getElementById("qTotal").textContent = data.quote.total;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const scale = 0.07;
+      const ox = 120, oy = 80;
+
+      // Draw boundary
+      ctx.beginPath();
+      data.boundary.forEach((pt, i) => {
+        const x = ox + pt[0] * scale;
+        const y = canvas.height - (oy + pt[1] * scale);
+        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+      });
+      ctx.closePath();
+      ctx.strokeStyle = "#58a6ff";
+      ctx.lineWidth = 3;
+      ctx.fillStyle = "#161b22";
+      ctx.fill();
+      ctx.stroke();
+
+      // Draw egress corridor
+      if (data.egress) {
+        ctx.beginPath();
+        const p1x = ox + data.egress.from[0] * scale;
+        const p1y = canvas.height - (oy + data.egress.from[1] * scale);
+        const p2x = ox + data.egress.to[0] * scale;
+        const p2y = canvas.height - (oy + data.egress.to[1] * scale);
+        ctx.moveTo(p1x, p1y);
+        ctx.lineTo(p2x, p2y);
+        ctx.strokeStyle = "rgba(248, 81, 73, 0.4)";
+        ctx.lineWidth = data.egress.width * scale;
+        ctx.lineCap = "round";
+        ctx.stroke();
+        ctx.strokeStyle = "#f85149";
+        ctx.lineWidth = 1;
+        ctx.setLineDash([4, 4]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+
+      // Draw furniture blocks
+      const colors = ["#1f6feb", "#d29922", "#2ea043", "#a371f7"];
+      for (let i = 0; i < data.placements; i++) {
+        const fx = ox + (800 + (i % 6) * 1000) * scale;
+        const fy = canvas.height - (oy + (1000 + Math.floor(i / 6) * 1200) * scale);
+        ctx.fillStyle = colors[i % colors.length];
+        ctx.fillRect(fx, fy, 80 * scale * 10, 40 * scale * 10);
+        ctx.strokeStyle = "#ffffff";
+        ctx.lineWidth = 1;
+        ctx.strokeRect(fx, fy, 80 * scale * 10, 40 * scale * 10);
+      }
+    }
+
+    function loadSelectedRoom() {
+      renderRoom(document.getElementById("roomSelect").value);
+    }
+    function resetZoom() {
+      renderRoom(document.getElementById("roomSelect").value);
+    }
+    renderRoom("ROOM-01");
+  </script>
+</body>
+</html>
