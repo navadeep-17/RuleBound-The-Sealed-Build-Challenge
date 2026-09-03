@@ -21,7 +21,7 @@ This document provides the definitive technical specification for all 14 rules i
 
 ### `RB-GEO-003`: Door Swing Arc Clearance
 - **Threshold**: Zero furniture intersection with the door swing radial sweep sector.
-- **Evaluation**: For doors with `"inward"` swing, let $\vec{H}$ be the hinge coordinate and $R = \text{door\_width\_mm}$. For each placement vertex $\vec{v} \in P$:
+- **Evaluation**: For doors with `"inward"` swing, let $\vec{H}$ be the hinge coordinate and $R = \text{door-width-mm}$. For each placement vertex $\vec{v} \in P$:
   $$\|\vec{v} - \vec{H}\| \ge R$$
 - **Penalty Energy**: If $\|\vec{v} - \vec{H}\| < R$, $\text{penalty} = (R - \|\vec{v} - \vec{H}\|) \times 8.0$.
 
@@ -63,14 +63,14 @@ Computed exclusively on Base Amount:
 
 ### `RB-PRC-010`: Finish Uplift Calculation
 Applied on line Base Amount using basis points from `finishes.json`:
-$$\text{finish\_uplift} = \text{round\_half\_up}\left(\frac{\text{base\_amount} \times \text{uplift\_bps}}{10000}\right)$$
+$$\text{finish-uplift} = \text{round-half-up}\left(\frac{\text{base-amount} \times \text{uplift-bps}}{10000}\right)$$
 
 ### `RB-PRC-011`: Assembly Labour Fee
 Banded on total assembly minutes across all catalog items:
 - $\le 240\text{ min}$: ₹900 / hour
 - $241\text{--}480\text{ min}$: ₹800 / hour
 - $> 480\text{ min}$: ₹750 / hour
-$$\text{labour\_fee} = \text{round\_half\_up}\left(\frac{\text{total\_minutes} \times \text{rate\_per\_hour}}{60}\right)$$
+$$\text{labour-fee} = \text{round-half-up}\left(\frac{\text{total-minutes} \times \text{rate-per-hour}}{60}\right)$$
 
 ### `RB-PRC-012`: Regional Freight Delivery Fee
 Banded on total Net Goods:

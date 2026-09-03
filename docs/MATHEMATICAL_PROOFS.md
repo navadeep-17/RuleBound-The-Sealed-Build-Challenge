@@ -32,7 +32,7 @@ Let the system state at iteration $t$ be defined by the tuple:
 $$\mathcal{M}_t = (N_t, E_t) \in \mathbb{N} \times \mathbb{R}_{\ge 0}$$
 where:
 - $N_t \in \{0, 1, \dots, N_0\}$ is the active placement count ($N_0 \le 60$).
-- $E_t = \sum_{i} \text{penalty}_i$ is the continuous geometric violation energy.
+- $E_t = \sum_i P_i$ is the continuous geometric violation energy.
 
 We define a strict partial order $\prec$ on $\mathbb{N} \times \mathbb{R}_{\ge 0}$ lexicographically:
 $$(N_{t+1}, E_{t+1}) \prec (N_t, E_t) \iff (N_{t+1} < N_t) \lor (N_{t+1} = N_t \land E_{t+1} \le E_t - \epsilon)$$
@@ -59,9 +59,9 @@ where $\epsilon = 1.0\text{ mm}$ is the minimum continuous relaxation improvemen
 
 ### Theorem 3.1 (Integer Round Half-Up Equivalence)
 For any non-negative integer numerator $N \ge 0$ and positive integer denominator $D > 0$, the mathematical round half-up function:
-$$\text{round\_half\_up}\left(\frac{N}{D}\right) = \left\lfloor \frac{N}{D} + \frac{1}{2} \right\rfloor$$
+$$\text{round-half-up}\left(\frac{N}{D}\right) = \left\lfloor \frac{N}{D} + \frac{1}{2} \right\rfloor$$
 is identically equal to the pure integer arithmetic operation:
-$$\text{round\_half\_up}(N, D) = \left\lfloor \frac{2N + D}{2D} \right\rfloor$$
+$$\text{round-half-up}(N, D) = \left\lfloor \frac{2N + D}{2D} \right\rfloor$$
 
 ### Proof
 Using the floor definition:

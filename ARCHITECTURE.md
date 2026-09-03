@@ -101,7 +101,7 @@ At the seam between generative proposals and deterministic evaluation, two stron
 - **Hard Iteration Bound**: The arbitration loop is strictly bounded to $K_{\max} = 6$ passes.
 - **State Measure**: State at iteration $t$ is defined by the well-founded lexicographic measure $\mathcal{M}_t = (N_t, E_t) \in \mathbb{N} \times \mathbb{R}_{\ge 0}$, where:
   - $N_t$ is the placement count ($N_t \le N_0$).
-  - $E_t = \sum \text{penalty}_i$ is the scalar geometric energy (sum of overlap areas, egress shortfalls, and clearance shortfalls).
+  - $E_t = \sum_i P_i$ is the scalar geometric energy (sum of overlap areas, egress shortfalls, and clearance shortfalls).
 - **Strictly Decreasing Invariant**:
   - **Phase A (Vector-Directed Relaxation)**: The arbiter computes outward normal vectors from wall boundaries, door swings, and egress corridors. A nudge is accepted if and only if $E_{t+1} \le E_t - \epsilon$ where $\epsilon = 1.0\text{ mm}$.
   - **Phase B (Discrete Pruning)**: If no continuous nudge reduces energy by $\epsilon$, the arbiter prunes the placement with the highest conflict score and lowest functional priority (accessories first, then storage, then chairs), strictly decrementing $N_{t+1} = N_t - 1$.
@@ -135,13 +135,13 @@ When physical geometry or mandatory emergency egress corridors mathematically pr
 ## 3. Deterministic Pricing Math & Arithmetic Integrity
 
 All financial arithmetic is computed in integer INR and integer basis points (`100 bps = 1%`). Fractional rupees use exact **round half-up** via integer division:
-$$\text{round\_half\_up}(N, D) = \lfloor (2N + D) / (2D) \rfloor$$
+$$\text{round-half-up}(N, D) = \left\lfloor \frac{2N + D}{2D} \right\rfloor$$
 
-1. **Base Amount**: $\text{base} = \text{unit\_price} \times \text{quantity}$ (`CATALOG`).
-2. **Finish Uplift**: $\text{round\_half\_up}(\text{base} \times \text{bps} / 10000)$ (`RB-PRC-010`).
-3. **Quantity Discount**: Tiered on base amount ($5\text{--}9: 300\text{ bps}$, $10\text{--}19: 700\text{ bps}$, $20+: 1000\text{ bps}$) (`RB-PRC-009`).
-4. **Labour Fee**: Banded on total assembly minutes ($\le 240\text{ min}: ₹900/\text{hr}$; $241\text{--}480\text{ min}: ₹800/\text{hr}$; $>480\text{ min}: ₹750/\text{hr}$) (`RB-PRC-011`).
-5. **Freight Fee**: Banded on net goods ($\le ₹100\text{k}: ₹5\text{k}$; $₹100\text{k}\text{--}₹250\text{k}: ₹9\text{k}$; $>₹250\text{k}: 4\%$) (`RB-PRC-012`).
+1. **Base Amount**: `base_amount = unit_list_price × quantity` (`CATALOG`).
+2. **Finish Uplift**: `finish_uplift = round_half_up(base_amount × uplift_bps / 10000)` (`RB-PRC-010`).
+3. **Quantity Discount**: Tiered on Base Amount (`1–4`: 0 bps, `5–9`: 300 bps, `10–19`: 700 bps, `20+`: 1000 bps) (`RB-PRC-009`).
+4. **Labour Fee**: Banded on total assembly minutes (`≤ 240 min`: ₹900/hr; `241–480 min`: ₹800/hr; `> 480 min`: ₹750/hr) (`RB-PRC-011`).
+5. **Freight Fee**: Banded on net goods (`≤ ₹100,000`: ₹5,000; `₹100,001–₹250,000`: ₹9,000; `> ₹250,000`: 4% of net goods) (`RB-PRC-012`).
 6. **Immutable Trace**: Every quote line includes an input/output calculation trace (`RB-PRC-014`).
 
 ---
