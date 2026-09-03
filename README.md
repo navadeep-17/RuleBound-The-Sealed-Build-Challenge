@@ -7,14 +7,6 @@
 
 ---
 
-## 🎥 Demonstration Video
-
-> 📺 **Watch the 5-Minute Technical Demonstration Video**:  
-> **[Google Drive Video Link](https://drive.google.com/file/d/1sQc1XkfnCOp7_p-EhqP3ZcSq-8P5Df82/view?usp=sharing)**  
-> *(Covers boundary seam architecture, vector relaxation descent, Question 4 escalation on ROOM-03, deterministic pricing math, CAD DXF floorplans, and Azure/Entra ID bonus tracks)*
-
----
-
 ## 📋 Executive Summary & Architectural Deliverables
 
 | Deliverable | Location | Description |
