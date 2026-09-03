@@ -5,6 +5,12 @@
 **Author**: Navadeep ([navadeepthota17@gmail.com](mailto:navadeepthota17@gmail.com))  
 **Repository**: [https://github.com/navadeep-17/RuleBound-The-Sealed-Build-Challenge](https://github.com/navadeep-17/RuleBound-The-Sealed-Build-Challenge)
 
+[![RuleBound CI Verification Suite](https://github.com/navadeep-17/RuleBound-The-Sealed-Build-Challenge/actions/workflows/ci.yml/badge.svg)](https://github.com/navadeep-17/RuleBound-The-Sealed-Build-Challenge/actions/workflows/ci.yml)
+![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)
+![Dependencies: Zero](https://img.shields.io/badge/dependencies-zero%20(stdlib)-brightgreen.svg)
+![Determinism: 100%](https://img.shields.io/badge/determinism-100%25%20byte--identical-success.svg)
+![Tests: 17/17](https://img.shields.io/badge/tests-17%2F17%20passing-success.svg)
+
 ---
 
 ## 📋 Executive Summary & Architectural Deliverables
@@ -25,6 +31,7 @@
 ## 🗂️ Repository Architecture & Directory Layout
 
 ```text
+├── .github/workflows/ci.yml  # Multi-OS (Ubuntu, Windows) Python (3.10-3.13) CI matrix
 ├── run.py                    # Master CLI runner & entrypoint
 ├── docs/                     # Deep-dive technical documentation
 │   ├── SYSTEM_GUIDE.md       # Module-by-module reference & architecture dataflow
@@ -32,6 +39,7 @@
 │   ├── SPATIAL_RULES_SPEC.md # Exhaustive 14-rule geometric and pricing specification
 │   └── BONUS_TRACKS_GUIDE.md # CAD DXF and Azure Entra ID architecture guide
 ├── rulebound/                # Core Fit-Out & Pricing Engine (100% pure Python standard library)
+│   ├── verifier.py           # Master 5-part full system audit scorecard (--verify-all)
 │   ├── arbiter.py            # Multi-modal relaxation arbiter (Vector normal translation, rotation, K_max=6)
 │   ├── geometry.py           # 2D SAT collision detection, boundary containment, distances
 │   ├── generator.py          # Autonomous constraint-aware spatial zoning generator
@@ -73,31 +81,37 @@
 ### Prerequisites
 - **Python 3.10+** (Standard Library only — **zero external dependencies required**)
 
-### 1. Master Output Generation
+### 1. Master System Audit & Verification Scorecard
+Run the full 5-part system verification suite in one command:
+```bash
+python run.py --verify-all
+```
+
+### 2. Master Output Generation
 Run the master engine across all rooms in the dataset:
 ```bash
 python run.py --input data --output OUTPUT
 ```
 
-### 2. Comprehensive Test Suite (All 14 Rules Verified)
+### 3. Comprehensive Test Suite (All 14 Rules Verified)
 Run the 17-test verification suite:
 ```bash
 python run.py --check
 ```
 
-### 3. Official JSON Schema Validation
+### 4. Official JSON Schema Validation
 Validate all generated `layout.json` and `quote.json` files against the schemas:
 ```bash
 python tools/validate_output.py OUTPUT
 ```
 
-### 4. Byte-for-Byte Multi-Run Determinism Verification
+### 5. Byte-for-Byte Multi-Run Determinism Verification
 Verify 100% byte-identical outputs across repeated execution:
 ```bash
 python tools/check_determinism.py --command "python run.py --input {input} --output {output}" --input data --work-dir .determinism-check
 ```
 
-### 5. Interactive Technical Demonstration CLI
+### 6. Interactive Technical Demonstration CLI
 Run the automated step-by-step terminal showcase:
 ```bash
 python tools/demo.py

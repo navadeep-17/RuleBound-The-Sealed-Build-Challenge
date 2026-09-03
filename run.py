@@ -172,16 +172,50 @@ def explain_price_trace(quote_path: Path | str, line_id: str | None = None) -> i
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="RuleBound Round 1 Master Runner & Explainability Engine")
+    if len(sys.argv) == 1:
+        print("""
+================================================================================
+  RULEBOUND FIT-OUT & DETERMINISTIC PRICING ENGINE
+  Author: Navadeep (navadeepthota17@gmail.com)
+================================================================================
+  Usage Quickstart:
+    1. Generate All Room Outputs & Proposals:
+       python run.py --input data --output OUTPUT
+
+    2. Master Full System Audit Scorecard:
+       python run.py --verify-all
+
+    3. 17-Test Automated Verification Suite:
+       python run.py --check
+
+    4. Interactive Terminal 2D Floorplan Visualizer:
+       python run.py --visualize ROOM-01
+       python run.py --visualize ROOM-03
+
+    5. Explain Line-Level Arithmetic Traces:
+       python run.py --explain ROOM-01 --line L001
+
+    6. Ingest External CAD DXF Floorplan:
+       python run.py --ingest-dxf OUTPUT/ROOM-01/plan.dxf --output OUTPUT
+================================================================================
+""")
+        sys.exit(0)
+
+    parser = argparse.ArgumentParser(description="RuleBound Master Runner & Explainability Engine")
     parser.add_argument("--input", help="Path to input data directory")
     parser.add_argument("--output", help="Path to output directory")
     parser.add_argument("--no-dxf", action="store_true", help="Disable CAD DXF floorplan generation")
     parser.add_argument("--explain", help="Retrieve and explain price trace for a quote file or room ID")
     parser.add_argument("--line", help="Line ID to explain (optional, used with --explain)")
     parser.add_argument("--check", action="store_true", help="Run comprehensive verification test suite")
+    parser.add_argument("--verify-all", action="store_true", help="Run master 5-part full system audit and verification scorecard")
     parser.add_argument("--visualize", help="Render ANSI 2D top-down floorplan directly in the terminal for a room ID")
     parser.add_argument("--ingest-dxf", help="Bonus Track: Ingest a 2D CAD DXF floorplan file and generate layout and quote")
     args = parser.parse_args()
+
+    if args.verify_all:
+        from rulebound.verifier import run_full_system_verification
+        sys.exit(run_full_system_verification(args.input or "data", args.output or "OUTPUT"))
 
     if args.ingest_dxf:
         out_dir = args.output or "OUTPUT"
