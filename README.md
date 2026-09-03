@@ -23,6 +23,7 @@
 | **Revised Architecture** | [`ARCHITECTURE.md`](ARCHITECTURE.md) | Boundary contracts, vector relaxation, $K_{\max}=6$ termination proof, and pricing math. |
 | **Iterative Changelog** | [`CHANGELOG.md`](CHANGELOG.md) | Comprehensive engineering changelog from Round 1 baseline through Round 3 final. |
 | **Committed Outputs** | [`OUTPUT/`](OUTPUT/) | Pre-generated, schema-validated, byte-deterministic outputs for all 5 released rooms. |
+| **Technical Documentation** | [`docs/`](docs/) | Deep mathematical proofs, spatial rules specs, and system guides. |
 | **CAD Floorplans & DXF Ingest** | [`rulebound/dxf_ingester.py`](rulebound/dxf_ingester.py) | 1:1 scale DXF export, interactive SVG floorplans, and ASCII DXF ingestion via `--ingest-dxf`. |
 | **Azure + Entra ID Deployment** | [`azure/`](azure/) | Production Dockerfile, Bicep infrastructure template, FastAPI service, and Entra ID JWT verification. |
 | **Test & Verification Suite** | [`tests/`](tests/), [`tools/`](tools/) | 17 unit tests verifying all 14 rules, schema validator, pack verifier, and determinism checker. |
@@ -33,6 +34,11 @@
 
 ```text
 ├── run.py                    # Master CLI runner & entrypoint
+├── docs/                     # Deep-dive technical documentation
+│   ├── SYSTEM_GUIDE.md       # Module-by-module reference & architecture dataflow
+│   ├── MATHEMATICAL_PROOFS.md# SAT collision, K_max=6 termination, and rounding proofs
+│   ├── SPATIAL_RULES_SPEC.md # Exhaustive 14-rule geometric and pricing specification
+│   └── BONUS_TRACKS_GUIDE.md # CAD DXF and Azure Entra ID architecture guide
 ├── rulebound/                # Core Fit-Out & Pricing Engine (100% pure Python standard library)
 │   ├── arbiter.py            # Multi-modal relaxation arbiter (Vector normal translation, rotation, K_max=6)
 │   ├── geometry.py           # 2D SAT collision detection, boundary containment, distances
