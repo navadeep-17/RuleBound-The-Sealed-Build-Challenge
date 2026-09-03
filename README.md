@@ -105,6 +105,47 @@ python tools/demo.py
 
 ---
 
+## 🔒 Determinism Statement
+
+As required by the **Runner Contract** and **Submission Checklist**, judges can verify 100% byte-identical output across repeat runs on any clean machine by executing:
+
+```bash
+# Automated verification across two isolated runs:
+python tools/check_determinism.py --command "python run.py --input {input} --output {output}" --input data --work-dir .determinism-check
+```
+
+Or manually:
+```bash
+# Run 1:
+python run.py --input data --output OUTPUT_RUN1
+
+# Run 2:
+python run.py --input data --output OUTPUT_RUN2
+
+# Compare byte-for-byte hashes:
+git diff --no-index OUTPUT_RUN1 OUTPUT_RUN2
+```
+
+**Determinism Guarantees**:
+- **Zero Entropy**: No timestamps, machine paths, random seeds, or pseudo-random UUIDs.
+- **Canonical Serialization**: UTF-8 encoding, alphabetically sorted keys, two-space indentation, and trailing newline.
+- **Integer Arithmetic**: Exact integer INR, basis points (`100 bps = 1%`), and half-up rounding eliminate IEEE 754 floating-point platform drift.
+- **Pure-Code Downstream**: Zero LLMs, stochastic heuristics, or network calls downstream of the generative boundary seam.
+
+---
+
+## 📊 Released Rooms & Verified Commercial Outputs
+
+| Room ID | Room Name | Target Cap. | Status | Grand Total (INR) | Reconciled Reference | Generated Files |
+| :--- | :--- | :---: | :---: | :---: | :---: | :--- |
+| **`ROOM-01`** | Harbour Design Studio | 12 | **VALID** | **₹337,964** | Exactly matches `REF-QUOTE-01` | `layout.json`, `quote.json`, `plan.dxf`, `plan.svg`, `report.html` |
+| **`ROOM-02`** | Verdant Study Carrels | 18 | **VALID** | **₹452,853** | Exactly matches `REF-QUOTE-02` | `layout.json`, `quote.json`, `plan.dxf`, `plan.svg`, `report.html` |
+| **`ROOM-03`** | Nimbus Hybrid Team Room | 10 | **UNSATISFIABLE** | **BLOCKED (₹0)** | Question 4 Escalation (Diagonal Egress) | `layout.json`, `quote.json`, `plan.dxf`, `plan.svg`, `report.html` |
+| **`ROOM-04`** | Orchard Focus Library | 14 | **UNSATISFIABLE** | **BLOCKED (₹0)** | Question 4 Escalation (Perimeter Clearances) | `layout.json`, `quote.json`, `plan.dxf`, `plan.svg`, `report.html` |
+| **`ROOM-05`** | Apex Project Hub | 18 | **UNSATISFIABLE** | **BLOCKED (₹0)** | Question 4 Escalation (Density vs Egress) | `layout.json`, `quote.json`, `plan.dxf`, `plan.svg`, `report.html` |
+
+---
+
 ## 💎 Bonus Tracks & Enterprise Features
 
 ### Bonus Track 1: Native CAD DXF Ingest & Export
