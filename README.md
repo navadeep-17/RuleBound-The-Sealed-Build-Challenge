@@ -29,6 +29,47 @@
 
 ---
 
+## 🗂️ Repository Architecture & Directory Layout
+
+```text
+├── run.py                    # Master CLI runner & entrypoint
+├── rulebound/                # Core Fit-Out & Pricing Engine (100% pure Python standard library)
+│   ├── arbiter.py            # Multi-modal relaxation arbiter (Vector normal translation, rotation, K_max=6)
+│   ├── geometry.py           # 2D SAT collision detection, boundary containment, distances
+│   ├── generator.py          # Autonomous constraint-aware spatial zoning generator
+│   ├── nlp_matcher.py        # Deterministic semantic brief intent parser
+│   ├── spatial_engine.py     # Complete 14-rule constraint validation engine
+│   ├── pricing_engine.py     # Integer commercial pricing math with line traces
+│   ├── serializer.py         # Deterministic UTF-8 sorted JSON writer
+│   ├── dxf_ingester.py       # Pure-Python ASCII DXF CAD floorplan parser
+│   ├── dxf_exporter.py       # 1:1 AutoCAD R12/2000 DXF floorplan exporter
+│   ├── svg_exporter.py       # Scaled browser-viewable SVG floorplan exporter
+│   ├── terminal_view.py      # ANSI 2D terminal floorplan visualizer (--visualize)
+│   └── report_generator.py   # Publication-grade commercial proposal & BOM exporter
+├── azure/                    # Enterprise Bonus: Azure Container Apps + Entra ID OAuth2 package
+│   ├── Dockerfile            # Container configuration
+│   ├── main.bicep            # Declarative Bicep infrastructure-as-code
+│   ├── app.py                # FastAPI HTTP service
+│   ├── entra_auth.py         # Microsoft Entra ID JWT Bearer token validator
+│   └── README.md             # Azure CLI deployment instructions
+├── data/                     # Released synthetic asset pack (catalog, finishes, rules, rooms, briefs)
+├── schemas/                  # Official JSON Schemas for validation
+├── starter/                  # Official Python & TypeScript stubs
+├── tests/                    # 17 automated unit tests covering all 14 rules
+├── tools/                    # Benchmarking & verification tools
+│   ├── demo.py               # Interactive terminal showcase demo
+│   ├── stress_test.py        # 50-room synthetic benchmark
+│   ├── pareto_frontier.py    # Capacity vs safety Pareto frontier analyzer
+│   ├── viewer.html           # Interactive HTML5 Canvas floorplan & pricing viewer
+│   ├── check_determinism.py  # Multi-run byte-for-byte determinism checker
+│   ├── validate_output.py    # Official JSON schema validator
+│   └── verify_pack.py        # Pack integrity verifier
+├── OUTPUT/                   # Validated, byte-identical outputs for all 5 rooms
+└── worked_examples/          # Reconciled reference quotes (REF-QUOTE-01 & 02)
+```
+
+---
+
 ## 🚀 Quickstart & One-Command Execution
 
 ### Prerequisites
