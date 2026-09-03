@@ -67,7 +67,7 @@ All notable changes and architectural advancements across Round 1, Round 2, and 
   - Integer INR and integer basis points (`100 bps = 1%`) throughout.
   - Exact integer arithmetic half-up rounding (\(2 \times \text{rem} \ge \text{denom}\)), eliminating floating-point ambiguities.
   - Quantity discount tiers (`RB-PRC-009`), finish uplifts (`RB-PRC-010`), labor rate bands (`RB-PRC-011`), freight bands (`RB-PRC-012`), unpriced blocking (`RB-PRC-013`), and audit traces (`RB-PRC-014`).
-  - Reconciled with worked reference examples `REF-QUOTE-01` (₹337,964) and `REF-QUOTE-02` (₹846,547).
+  - Reconciled with worked reference examples `REF-QUOTE-01` (₹337,964) and `REF-QUOTE-02` (₹452,853).
 - **Deterministic Output Serialization (`rulebound/serializer.py`)**:
   - UTF-8 encoding, alphabetically sorted keys, 2-space indentation, terminal newline.
   - Multi-run determinism confirmed across all 20 output files.
