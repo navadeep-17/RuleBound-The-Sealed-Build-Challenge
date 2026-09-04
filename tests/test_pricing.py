@@ -2,7 +2,10 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import sys
 import unittest
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from rulebound.loader import load_asset_pack
 from rulebound.pricing_engine import price_room_layout

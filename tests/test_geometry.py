@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+import sys
 import unittest
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from rulebound.geometry import (
     get_rectangle_vertices,

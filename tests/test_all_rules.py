@@ -1,8 +1,11 @@
 """Comprehensive test suite verifying all 14 Rules, DXF Ingestion, and Entra ID Auth."""
 from __future__ import annotations
 
+import sys
 import unittest
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from azure.entra_auth import EntraIDAuthValidator
 from rulebound.dxf_ingester import ingest_room_from_dxf
