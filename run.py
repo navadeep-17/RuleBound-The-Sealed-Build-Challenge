@@ -27,9 +27,16 @@ def process_rooms(input_dir: str | Path, output_dir: str | Path, export_dxf: boo
     pack = load_asset_pack(input_dir)
     out_root = Path(output_dir)
 
+    print("\n" + "=" * 70)
+    print("  RULEBOUND FIT-OUT ENGINE  --  Processing All Rooms")
+    print("=" * 70)
+
     for room in sorted(pack.rooms, key=lambda r: r.room_id):
         room_id = room.room_id
         room_out = out_root / room_id
+
+        print(f"\n  [{room_id}] {room.name}")
+        print(f"  {'-' * 48}")
 
         # 1. Generate & Arbitrate Layout
         layout = generate_layout_for_room(room, pack)
@@ -38,30 +45,43 @@ def process_rooms(input_dir: str | Path, output_dir: str | Path, export_dxf: boo
         if layout.status == "valid":
             line_specs = aggregate_placements_to_lines(layout.placements)
             quote = price_room_layout(room_id, line_specs, pack)
+            total = quote.summary.get("grand_total_inr", 0)
+            print(f"  [OK] Layout  : valid  ({len(layout.placements)} placements, {len(layout.violations)} violations)")
+            print(f"  [OK] Quote   : INR {total:>10,}")
         else:
             # Blocked quote for invalid or unsatisfiable layout under RB-PRC-013
             quote = price_room_layout(room_id, [], pack)
             quote.blocking_reasons.extend([v.message for v in layout.violations])
+            print(f"  [!!] Layout  : {layout.status}")
+            print(f"  [XX] Quote   : BLOCKED (INR 0)  -- RB-PRC-013 escalation triggered")
 
         # 3. Serialize Deterministic JSON
         write_deterministic_json(room_out / "layout.json", layout.to_dict())
         write_deterministic_json(room_out / "quote.json", quote.to_dict())
+        print(f"  [OK] Written : layout.json, quote.json")
 
         # 4. Bonus Track: CAD DXF Floorplan Export
         if export_dxf:
             export_layout_to_dxf(room, layout, pack.catalog_by_sku, room_out / "plan.dxf")
+            print(f"  [OK] Written : plan.dxf  (AutoCAD R12 1:1 scale)")
 
         # 5. Bonus Track: Scaled SVG Floorplan (viewable in browser)
         svg_path = room_out / "plan.svg"
         export_room_svg(room, layout, pack.catalog_by_sku, str(svg_path))
+        print(f"  [OK] Written : plan.svg  (browser-viewable)")
 
         # 6. Standout Feature: Executive Commercial Fit-Out Proposal & BOM Report
         from rulebound.report_generator import generate_html_proposal
         svg_content = svg_path.read_text(encoding="utf-8") if svg_path.exists() else None
         html_report = generate_html_proposal(room, layout, quote, pack, svg_content)
         (room_out / "report.html").write_text(html_report, encoding="utf-8")
+        print(f"  [OK] Written : report.html  (executive proposal & BOM)")
 
+    print("\n" + "=" * 70)
+    print("  ALL ROOMS COMPLETE  --  Outputs written to:  " + str(out_root))
+    print("=" * 70 + "\n")
     return 0
+
 
 
 def process_dxf_input(dxf_path: str | Path, output_dir: str | Path, data_dir: str = "data") -> int:
