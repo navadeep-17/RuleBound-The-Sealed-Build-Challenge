@@ -25,6 +25,7 @@
 | **CAD Floorplans & DXF Ingest** | [`rulebound/dxf_ingester.py`](rulebound/dxf_ingester.py) | 1:1 scale DXF export, interactive SVG floorplans, and ASCII DXF ingestion via `--ingest-dxf`. |
 | **Azure + Entra ID Deployment** | [`azure/`](azure/) | Production Dockerfile, Bicep infrastructure template, FastAPI service, and Entra ID JWT verification. |
 | **Test & Verification Suite** | [`tests/`](tests/), [`tools/`](tools/) | 17 unit tests verifying all 14 rules, schema validator, pack verifier, and determinism checker. |
+| **Technical Demo Video** | [Google Drive Link](https://drive.google.com/file/d/1IscQXa4xYL_y87sdL4Pcm_dueWJeUDt0/view?usp=sharing) | Complete 5-minute technical walkthrough: end-to-end execution, violation repair, Question 4 escalation, pricing traces, and bonus tracks. |
 
 ---
 
@@ -73,6 +74,22 @@
 ├── OUTPUT/                   # Validated, byte-identical outputs for all 5 rooms
 └── worked_examples/          # Reconciled reference quotes (REF-QUOTE-01 & 02)
 ```
+
+---
+
+## 🎥 Technical Demonstration Video
+
+A comprehensive technical walkthrough (< 5 minutes) covering end-to-end execution from one documented command, boundary seam enforcement, automated constraint violation repair, Question 4 escalation, deterministic pricing traces, and enterprise bonus tracks:
+
+🔗 **Watch Demonstration Video**: [**Google Drive Link (Click Here to View)**](https://drive.google.com/file/d/1IscQXa4xYL_y87sdL4Pcm_dueWJeUDt0/view?usp=sharing)
+
+### Video Walkthrough Highlights
+- **0:00 – 0:45**: Problem overview, zero-dependency architecture, and master verification scorecard (`python run.py --verify-all`).
+- **0:45 – 1:30**: End-to-end generation (`python run.py --input data --output OUTPUT`) & JSON schema validation.
+- **1:30 – 2:30**: Boundary seam contract (`ProposedLayout`), SAT collision detection, and bounded vector relaxation repair ($K_{\max}=6$).
+- **2:30 – 3:30**: Interactive ANSI 2D terminal visualizer (`--visualize`) and Question 4 escalation on unsatisfiable room (`ROOM-03`).
+- **3:30 – 4:15**: Deterministic integer INR pricing arithmetic and line-level audit traces (`--explain`).
+- **4:15 – 4:50**: Native CAD DXF export/ingest, executive HTML commercial proposals (`report.html`), and Azure Entra ID OAuth2 package.
 
 ---
 
